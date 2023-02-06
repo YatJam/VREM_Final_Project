@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
-import Player from '../image/demoKnight.png';
-import Scene from '../image/demoScene.png'
+import Player from '../../image/demoKnight.png';
+import Scene from '../../image/demoScene.png'
 import './TextGame.css'
 
 const TextGame = () => {

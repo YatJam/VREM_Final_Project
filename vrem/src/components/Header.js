@@ -1,21 +1,15 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Header = () =>{
-
-    const Title = styled.h1`
-    display: flex;
-    justify-content: center;
-    padding: 50px;
-    margin: 50px;
-    text-align: center;
-    `
-
+const Header = () => {
     return (
         <header>
-            <Title>VREM</Title>
+            <Link to='/'>
+                <nav className='logo'>VREM</nav>
+            </Link>{' '}
         </header>
-    )
-}
+    );
+};
+
 export default Header;
 

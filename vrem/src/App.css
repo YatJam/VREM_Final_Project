@@ -1,4 +1,85 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+h1{
+  color:white
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
+.wrapper-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.logo {
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  font-weight: 800;
+  font-size: 130px;
+  font-family: 'poppins', sans-serif;
+  -webkit-background-clip: text;
+  background-image: url('image/fireBackground.jpeg');
+  background-position: 0 0;
+  animation: back 20s linear infinite;
+  font-style: italic;
+}
+@keyframes back {
+  100% {
+      background-position: 2000px 0;
+  }
+}
+
+#title {
+  color: #fff;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+#title span {
+  background: -webkit-linear-gradient(white, #38495a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translate(-20px, 0);
+  }
+  to {
+      opacity: 1;
+      transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translate(0px, 0px);
+  }
+  to {
+      transform: translate(-20px, 0);
+      opacity: 0;
+  }
+}
+
+.fadeIn {
+  animation: 0.5s fadeIn forwards;
+}
+
+.fadeOut {
+  animation: 0.5s fadeOut forwards;
+}
