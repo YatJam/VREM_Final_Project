@@ -4,6 +4,10 @@ import styled from "styled-components";
 const Header = () =>{
 
     const Title = styled.h1`
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    margin: 50px;
     text-align: center;
     `
 
@@ -13,5 +17,5 @@ const Header = () =>{
         </header>
     )
 }
-export default Header
+export default Header;
 
