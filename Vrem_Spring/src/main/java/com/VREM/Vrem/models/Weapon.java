@@ -1,8 +1,10 @@
 package com.VREM.Vrem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,9 +21,14 @@ public class Weapon {
     @Column(name = "weapon_damage")
     private int weaponDamage;
 
+//    @OneToMany(mappedBy = "users")
+//    @JsonManagedReference
+//    private List<User> user;
+
     public Weapon(String weaponType, int weaponDamage) {
         this.weaponType = weaponType;
         this.weaponDamage = weaponDamage;
+//        this.user = new ArrayList<>();
     }
 
     public Weapon() {
@@ -42,4 +49,12 @@ public class Weapon {
     public void setWeaponDamage(int weaponDamage) {
         this.weaponDamage = weaponDamage;
     }
+
+//    public List<User> getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(List<User> user) {
+//        this.user = user;
+//    }
 }

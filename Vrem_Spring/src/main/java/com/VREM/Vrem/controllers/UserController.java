@@ -32,7 +32,19 @@ public class UserController {
     }
 
     @PutMapping(value = "/users/{id}")
-    public ResponseEntity updateUser(@PathVariable Long id){
-        return new ResponseEntity<>(userRepository.findById(id), HttpStatus.OK);
+    public User updateUser(@RequestBody User newUser, @PathVariable Long id){
+
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setPlayerName(newUser.getPlayerName());
+                    user.setCharacterClass(newUser.getCharacterClass());
+                    user.setPlayerArmour(newUser.getPlayerArmour());
+                    user.setPlayerWeapon(newUser.getPlayerWeapon());
+                    return userRepository.save(user);
+                })
+                .orElseGet(() ->{
+                    newUser.setId(id);
+                    return userRepository.save(newUser);
+                });
     }
 }

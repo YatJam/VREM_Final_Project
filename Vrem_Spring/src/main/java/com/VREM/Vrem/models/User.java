@@ -1,5 +1,6 @@
 package com.VREM.Vrem.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -18,21 +19,21 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "characterclass_id", nullable = true)
-    @JsonIgnoreProperties({"users"})
+    @JsonBackReference
     private CharacterClass characterClass;
 
     @ManyToOne
     @JoinColumn(name = "armour_id", nullable = true)
-    @JsonIgnoreProperties({"users"})
+    @JsonBackReference
     private Armour playerArmour;
 
     @ManyToOne
     @JoinColumn(name = "weapon_id", nullable = true)
-    @JsonIgnoreProperties({"users"})
+    @JsonBackReference
     private Weapon playerWeapon;
 
     @OneToMany
-    @JsonIgnoreProperties({"user"})
+    @JsonBackReference
     @Column(name = "player_inventory")
     private List<Item> playerInventory;
 
