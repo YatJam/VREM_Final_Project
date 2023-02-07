@@ -31,5 +31,5 @@ public class ArmourController {
         armourRepository.save(armour);
         return new ResponseEntity<>(armour, HttpStatus.CREATED);
     }
-    }
+}
 
