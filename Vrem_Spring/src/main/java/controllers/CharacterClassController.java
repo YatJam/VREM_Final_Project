@@ -1,12 +1,10 @@
 package controllers;
 
-import models.Armour;
 import models.CharacterClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositories.ArmourRepository;
 import repositories.CharacterClassRepository;
 
 import java.util.List;
