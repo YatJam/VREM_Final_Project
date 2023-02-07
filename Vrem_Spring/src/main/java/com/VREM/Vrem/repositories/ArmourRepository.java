@@ -1,6 +1,6 @@
-package repositories;
+package com.VREM.Vrem.repositories;
 
-import models.Armour;
+import com.VREM.Vrem.models.Armour;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,7 @@
 package com.VREM.Vrem;
 
+import com.VREM.Vrem.models.Armour;
+import com.VREM.Vrem.repositories.*;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,12 @@ class VremApplicationTests {
 
 	@Test
 	void contextLoads() {
+	}
+
+	@Test
+	public void canAddArmourToDataBase(){
+		Armour leatherArmour = new Armour("Leather Armour", 10);
+		armourRepository.save(leatherArmour);
 	}
 
 

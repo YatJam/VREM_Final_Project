@@ -1,6 +1,6 @@
-package repositories;
+package com.VREM.Vrem.repositories;
 
-import models.Item;
+import com.VREM.Vrem.models.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

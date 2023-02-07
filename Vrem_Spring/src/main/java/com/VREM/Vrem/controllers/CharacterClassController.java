@@ -1,11 +1,11 @@
-package controllers;
+package com.VREM.Vrem.controllers;
 
-import models.CharacterClass;
+import com.VREM.Vrem.models.CharacterClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositories.CharacterClassRepository;
+import com.VREM.Vrem.repositories.CharacterClassRepository;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
-package controllers;
+package com.VREM.Vrem.controllers;
 
-import models.Armour;
+import com.VREM.Vrem.models.Armour;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositories.ArmourRepository;
+import com.VREM.Vrem.repositories.ArmourRepository;
 
 import java.util.List;
 

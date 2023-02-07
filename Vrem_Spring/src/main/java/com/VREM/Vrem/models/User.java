@@ -1,4 +1,4 @@
-package models;
+package com.VREM.Vrem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -31,15 +31,17 @@ public class User {
     @JsonIgnoreProperties({"users"})
     private Weapon playerWeapon;
 
+    @OneToMany
+    @JsonIgnoreProperties({"user"})
     @Column(name = "player_inventory")
-    private List<Item> playerinventory;
+    private List<Item> playerInventory;
 
     public User(String playerName, CharacterClass characterClass, Armour playerArmour, Weapon playerWeapon) {
         this.playerName = playerName;
         this.characterClass = characterClass;
         this.playerArmour = playerArmour;
         this.playerWeapon = playerWeapon;
-        this.playerinventory = new ArrayList<>();
+        this.playerInventory = new ArrayList<>();
     }
 
     public User() {
@@ -86,15 +88,15 @@ public class User {
         this.playerWeapon = playerWeapon;
     }
 
-    public List<Item> getPlayerinventory() {
-        return playerinventory;
+    public List<Item> getPlayerInventory() {
+        return playerInventory;
     }
 
-    public void setPlayerinventory(List<Item> playerinventory) {
-        this.playerinventory = playerinventory;
+    public void setPlayerInventory(List<Item> playerInventory) {
+        this.playerInventory = playerInventory;
     }
 
     public void addItem(Item item){
-        this.playerinventory.add(item);
+        this.playerInventory.add(item);
     }
 }
