@@ -15,7 +15,7 @@ a {
   display: inline-block;
 }
 
-a::before {
+/* a::before {
   background-color: #54b3d6;
   height: 2px;
   bottom: 0;
@@ -39,7 +39,7 @@ a::after {
 a:hover::after,
 a:focus::after {
   transform: translate3d(0, 0, 0);
-}
+} */
 
 
 .wrapper-animation {
