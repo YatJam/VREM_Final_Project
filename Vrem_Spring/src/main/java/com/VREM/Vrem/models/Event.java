@@ -19,7 +19,7 @@ public class Event {
 
     @ManyToMany
     @JsonIgnoreProperties({"events"})
-    @JoinColumn (name = "event_options", nullable = false)
+    @Column (name = "event_options")
     private List<Choice> options;
 
     public Event(String eventStory, List<Choice> options) {

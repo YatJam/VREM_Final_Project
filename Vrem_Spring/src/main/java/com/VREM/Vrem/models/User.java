@@ -18,31 +18,28 @@ public class User {
     private String playerName;
 
     @ManyToOne
-    @JoinColumn(name = "characterclass_id", nullable = true)
-    @JsonBackReference
+    @JoinColumn(name = "characterclass_id", nullable = false)
     private CharacterClass characterClass;
 
     @ManyToOne
-    @JoinColumn(name = "armour_id", nullable = true)
-    @JsonBackReference
+    @JoinColumn(name = "armour_id", nullable = false)
     private Armour playerArmour;
 
     @ManyToOne
-    @JoinColumn(name = "weapon_id", nullable = true)
-    @JsonBackReference
+    @JoinColumn(name = "weapon_id", nullable = false)
     private Weapon playerWeapon;
 
-    @OneToMany
-    @JsonBackReference
-    @Column(name = "player_inventory")
-    private List<Item> playerInventory;
+//    @OneToMany
+//    @JsonBackReference
+//    @Column(name = "player_inventory")
+//    private List<Item> playerInventory;
 
     public User(String playerName, CharacterClass characterClass, Armour playerArmour, Weapon playerWeapon) {
         this.playerName = playerName;
         this.characterClass = characterClass;
         this.playerArmour = playerArmour;
         this.playerWeapon = playerWeapon;
-        this.playerInventory = new ArrayList<>();
+//        this.playerInventory = new ArrayList<>();
     }
 
     public User() {
@@ -89,15 +86,15 @@ public class User {
         this.playerWeapon = playerWeapon;
     }
 
-    public List<Item> getPlayerInventory() {
-        return playerInventory;
-    }
-
-    public void setPlayerInventory(List<Item> playerInventory) {
-        this.playerInventory = playerInventory;
-    }
-
-    public void addItem(Item item){
-        this.playerInventory.add(item);
-    }
+//    public List<Item> getPlayerInventory() {
+//        return playerInventory;
+//    }
+//
+//    public void setPlayerInventory(List<Item> playerInventory) {
+//        this.playerInventory = playerInventory;
+//    }
+//
+//    public void addItem(Item item){
+//        this.playerInventory.add(item);
+//    }
 }

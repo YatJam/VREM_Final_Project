@@ -21,14 +21,14 @@ public class Armour {
     @Column(name = "armour_defense")
     private int armourDefense;
 
-//    @OneToMany(mappedBy = "users")
-//    @JsonManagedReference
-//    private List<User> user;
-
+    @JsonIgnoreProperties
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<User> users;
     public Armour(String armourType, int armourDefense) {
         this.armourType = armourType;
         this.armourDefense = armourDefense;
-//        this.user = new ArrayList<>();
+        this.users = new ArrayList<>();
     }
 
     public Armour() {
@@ -58,11 +58,11 @@ public class Armour {
         this.armourDefense = armourDefense;
     }
 
-//    public List<User> getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(List<User> user) {
-//        this.user = user;
-//    }
+    public List<User> getUser() {
+        return users;
+    }
+
+    public void setUser(List<User> user) {
+        this.users = user;
+    }
 }

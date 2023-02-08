@@ -21,14 +21,15 @@ public class Weapon {
     @Column(name = "weapon_damage")
     private int weaponDamage;
 
-//    @OneToMany(mappedBy = "users")
-//    @JsonManagedReference
-//    private List<User> user;
+    @JsonIgnoreProperties
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<User> users;
 
     public Weapon(String weaponType, int weaponDamage) {
         this.weaponType = weaponType;
         this.weaponDamage = weaponDamage;
-//        this.user = new ArrayList<>();
+        this.users = new ArrayList<>();
     }
 
     public Weapon() {
@@ -36,6 +37,14 @@ public class Weapon {
 
     public String getWeaponType() {
         return weaponType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setWeaponType(String weaponType) {
@@ -50,11 +59,11 @@ public class Weapon {
         this.weaponDamage = weaponDamage;
     }
 
-//    public List<User> getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(List<User> user) {
-//        this.user = user;
-//    }
+    public List<User> getUser() {
+        return users;
+    }
+
+    public void setUser(List<User> user) {
+        this.users = user;
+    }
 }

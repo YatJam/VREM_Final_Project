@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "characterclasses")
@@ -24,15 +25,18 @@ public class CharacterClass {
     @Column(name = "character_battlecry")
     private String characterBattlecry;
 
-//    @OneToMany(mappedBy = "users")
-//    @JsonManagedReference
-//    private List<User> user;
+    @JsonIgnoreProperties
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<User> users;
 
     public CharacterClass(String characterType, int characterHealth, String characterBattlecry) {
         this.characterType = characterType;
         this.characterHealth = characterHealth;
         this.characterBattlecry = characterBattlecry;
-//        this.user = new ArrayList<>();
+        this.users = new ArrayList<>();
+
+
     }
 
     public CharacterClass() {
@@ -70,11 +74,11 @@ public class CharacterClass {
         this.characterBattlecry = characterBattlecry;
     }
 
-//    public List<User> getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(List<User> user) {
-//        this.user = user;
-//    }
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }

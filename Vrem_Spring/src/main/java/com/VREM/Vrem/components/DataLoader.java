@@ -1,15 +1,15 @@
 package com.VREM.Vrem.components;
 
-import com.VREM.Vrem.models.Armour;
-import com.VREM.Vrem.models.CharacterClass;
-import com.VREM.Vrem.models.User;
-import com.VREM.Vrem.models.Weapon;
+import com.VREM.Vrem.models.*;
 import com.VREM.Vrem.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Profile("!test")
 @Component
@@ -30,6 +30,12 @@ public class DataLoader implements ApplicationRunner{
     @Autowired
     WeaponRepository weaponRepository;
 
+    @Autowired
+    ChoiceRepository choiceRepository;
+
+    @Autowired
+    EventRepository eventRepository;
+
     public DataLoader() {
     }
 
@@ -43,7 +49,30 @@ public class DataLoader implements ApplicationRunner{
         Armour rags = new Armour("Rags", 1);
         armourRepository.save(rags);
 
-        User John = new User("John", Dwarf, rags, barehands);
-        userRepository.save(John);
+        User john = new User("John", Dwarf, rags, barehands);
+        userRepository.save(john);
+
+        User jackie = new User("Jackie", Dwarf, rags, barehands);
+        userRepository.save(jackie);
+
+        User ewa = new User("Ewa", Dwarf, rags, barehands);
+        userRepository.save(ewa);
+
+        Choice choice1 = new Choice("Attack", 2);
+        Choice choice2 = new Choice("Search Room", 3);
+        Choice choice3 = new Choice("Talk to Chicken", 4);
+        Choice choice4 = new Choice("Leave room", 5);
+        choiceRepository.save(choice1);
+        choiceRepository.save(choice2);
+        choiceRepository.save(choice3);
+        choiceRepository.save(choice4);
+
+        List<Choice> options = new ArrayList<>();
+        Event startEvent = new Event("Starting Event",options);
+        options.add(choice1);
+        options.add(choice2);
+        options.add(choice3);
+        options.add(choice4);
+        eventRepository.save(startEvent);
     }
 }
