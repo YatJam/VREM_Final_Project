@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import HomeContainer from './HomeContainer';
+import GameContainer from './GameContainer'
 import About from '../components/componentsNavPages/About';
 import Characters from '../components/componentsNavPages/Characters';
 import Updates from '../components/componentsNavPages/Updates';
@@ -28,6 +29,7 @@ const MainContainer = () => {
                 <Route path='/about' element={<About /> } />
                 <Route path='/characters' element={<Characters />} />
                 <Route path='/updates' element={<Updates />} />
+                <Route path='/game' element={<GameContainer />} />
                 {/* <Route path='/game' element={<GameContainer />} /> */}   
             </Routes>
         </section>

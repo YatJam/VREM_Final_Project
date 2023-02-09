@@ -1,5 +1,7 @@
 import React from 'react'
 import EventService from '../service/EventService'
+import { useState, useEffect } from 'react';
+import TextGame from '../components/componentsTextGame/TextGame';
 
 function GameContainer() {
     const [allEvents, setAllEvents] = useState([]);

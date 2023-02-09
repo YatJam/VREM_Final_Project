@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import { Link } from 'react-router-dom';
 import './NewPlayerModal.css'
 
 function NewPlayerModal({ closeModal }) {
@@ -18,7 +19,9 @@ function NewPlayerModal({ closeModal }) {
             </div>
             <div className="footer">
                 <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
-                <button>create player</button>
+                <Link to='/game'>
+                <button>create player</button>{' '}
+                </Link>
             </div>
 
         </div>
