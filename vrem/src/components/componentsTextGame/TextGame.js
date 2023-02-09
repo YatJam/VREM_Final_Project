@@ -4,6 +4,8 @@ import Scene from '../../image/demoScene.png'
 import './TextGame.css'
 
 const TextGame = ({events}) => {
+    const [openInventory, setOpenInventory] = useState(false)
+    const [openEquipment, setOpenEquipment] = useState(false)
 
     return (
         <body>
@@ -32,8 +34,10 @@ const TextGame = ({events}) => {
                 </div>
             </div>
             <div className="actionButtonContainer">
-                <button className="inventoryButton">Inventory Button</button>
-                <button className="equipmentButton">Equipment Button</button>
+                <button className="openModalBtn" onClick={() => setOpenInventory(true)}>Inventory</button>
+                    {openInventory && <InventoryModal closeModal={setOpenInventory}/>}
+                <button className="openModalBtn" onClick={() => setOpenEquipment(true)}>Equipment</button>
+                    {openEquipment && <EquipmentModal closeModal={setOpenEquipment}/>}
             </div>
             </div>    
         </body>
