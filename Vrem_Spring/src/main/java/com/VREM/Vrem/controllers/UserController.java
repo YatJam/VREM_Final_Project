@@ -47,4 +47,10 @@ public class UserController {
                     return userRepository.save(newUser);
                 });
     }
+
+    @DeleteMapping(value = "/users/{id}")
+    public String deleteById(@PathVariable("id") Long id) {
+        return "delete has been called";
+    }
+
 }
