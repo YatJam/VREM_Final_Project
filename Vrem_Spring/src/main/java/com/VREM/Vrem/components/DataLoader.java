@@ -67,12 +67,25 @@ public class DataLoader implements ApplicationRunner{
         choiceRepository.save(choice3);
         choiceRepository.save(choice4);
 
-        List<Choice> options = new ArrayList<>();
-        Event startEvent = new Event("Starting Event",options);
-        options.add(choice1);
-        options.add(choice2);
-        options.add(choice3);
-        options.add(choice4);
+        Event startEvent = new Event("Starting Event");
         eventRepository.save(startEvent);
+
+        startEvent.addChoice(choice1);
+        startEvent.addChoice(choice2);
+        startEvent.addChoice(choice3);
+        startEvent.addChoice(choice4);
+        eventRepository.save(startEvent);
+
+//        choice1.addEvent(startEvent);
+//        choiceRepository.save(choice1);
+//
+//        choice2.addEvent(startEvent);
+//        choiceRepository.save(choice2);
+//
+//        choice3.addEvent(startEvent);
+//        choiceRepository.save(choice3);
+//
+//        choice4.addEvent(startEvent);
+//        choiceRepository.save(choice4);
     }
 }

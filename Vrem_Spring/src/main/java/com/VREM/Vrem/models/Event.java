@@ -1,6 +1,7 @@
 package com.VREM.Vrem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,12 +20,25 @@ public class Event {
 
     @ManyToMany
     @JsonIgnoreProperties({"events"})
-    @Column (name = "event_options")
-    private List<Choice> options;
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "event_choices",
+            joinColumns = { @JoinColumn(
+                    name = "event_id",
+                    nullable = false,
+                    updatable = false)
+            },
+            inverseJoinColumns = { @JoinColumn(
+                    name = "choice_id",
+                    nullable = false,
+                    updatable = false)
+            }
+    )
+    private List<Choice> choices;
 
-    public Event(String eventStory, List<Choice> options) {
+    public Event(String eventStory) {
         this.eventStory = eventStory;
-        this.options = new ArrayList<>();
+        this.choices = new ArrayList<>();
     }
 
     public Event() {
@@ -46,15 +60,15 @@ public class Event {
         this.eventStory = eventStory;
     }
 
-    public List<Choice> getOptions() {
-        return options;
+    public List<Choice> getChoices() {
+        return choices;
     }
 
-    public void setOptions(List<Choice> options) {
-        this.options = options;
+    public void setChoices(List<Choice> choices) {
+        this.choices = choices;
     }
 
-    public void add(Choice option){
-        this.options.add(option);
+    public void addChoice(Choice choice){
+        this.choices.add(choice);
     }
 }
