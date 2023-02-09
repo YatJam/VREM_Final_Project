@@ -2,10 +2,17 @@ import React from 'react';
 import Navigator from '../components/Navigator'
 import TextGame from '../components/componentsTextGame/TextGame';
 import styled from 'styled-components';
+import EventService from '../service/EventService'
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const HomeContainer = () => {
+    const [allEvents, setAllEvents] = useState([]);
+
+    useEffect(() => {
+        EventService.getEvents().then((events) => setAllEvents(events));
+    }, []);
+    
 
     const HomePageWrapper = styled.div`
         display: flex;
@@ -19,7 +26,7 @@ const HomeContainer = () => {
         <main>
             <Navigator />
             <HomePageWrapper>
-                <TextGame />
+                <TextGame events={allEvents}/>
             </HomePageWrapper>
         </main>
     );
