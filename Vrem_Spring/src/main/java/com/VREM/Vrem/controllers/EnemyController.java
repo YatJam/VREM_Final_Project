@@ -1,7 +1,6 @@
 package com.VREM.Vrem.controllers;
 
 import com.VREM.Vrem.models.Enemy;
-import com.VREM.Vrem.models.User;
 import com.VREM.Vrem.repositories.EnemyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
