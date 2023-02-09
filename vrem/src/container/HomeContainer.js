@@ -2,17 +2,14 @@ import React from 'react';
 import Navigator from '../components/Navigator'
 import TextGame from '../components/componentsTextGame/TextGame';
 import styled from 'styled-components';
-import EventService from '../service/EventService'
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import NewPlayerModal from '../components/componentsTextGame/NewPlayerModal';
 
 const HomeContainer = () => {
-    const [allEvents, setAllEvents] = useState([]);
 
-    useEffect(() => {
-        EventService.getEvents().then((events) => setAllEvents(events));
-    }, []);
-    
+    const [openModal, setOpenModal] = useState(false)
+   
 
     const HomePageWrapper = styled.div`
         display: flex;
@@ -26,7 +23,11 @@ const HomeContainer = () => {
         <main>
             <Navigator />
             <HomePageWrapper>
-                <TextGame events={allEvents}/>
+                <div className="startGameWrapper">
+                    <h1>Lets start a new game</h1>
+                    <button className="openModalBtn" onClick={() => setOpenModal(true)}>Start Game</button>
+                    {openModal && <NewPlayerModal closeModal={setOpenModal}/>}
+                </div>
             </HomePageWrapper>
         </main>
     );
