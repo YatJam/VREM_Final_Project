@@ -22,13 +22,13 @@ const TextGame = ({events}) => {
                     <img className="sceneImage" src={Scene} alt='placeholderIamge'/>
                 </div>
                 <div className="textContainer">
-                    <p>{events[0].eventStory}</p>
+                    <p>{events[0] ? events[0].eventStory : null}</p>
                 </div>
                 <div className="buttonContainer" id="btn-grid">
-                    <button className="optionButtons" >{events[0].choices[0].choiceType}</button>
-                    <button className="optionButtons" >{events[0].choices[1].choiceType}</button>
-                    <button className="optionButtons" >{events[0].choices[2].choiceType}</button>
-                    <button className="optionButtons" >{events[0].choices[3].choiceType}</button>
+                    <button className="optionButtons" >{events[0] ? events[0].choices[0].choiceType : null}</button>
+                    <button className="optionButtons" >{events[0] ? events[0].choices[1].choiceType : null}</button>
+                    <button className="optionButtons" >{events[0] ? events[0].choices[2].choiceType : null}</button>
+                    <button className="optionButtons" >{events[0] ? events[0].choices[3].choiceType : null}</button>
                 </div>
             </div>
             <div className="actionButtonContainer">
