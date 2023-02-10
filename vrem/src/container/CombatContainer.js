@@ -9,7 +9,7 @@ function CombatContainer() {
 
   return (
     <>
-    <div className="main">
+    <div className="combatWrapper">
         {mode === 'start' && (
             <StartMenu onStartClick={() => setMode('battle')}/>
             )}

@@ -1,95 +1,16 @@
-.main{
+.combatWrapper {
     background: linear-gradient(
-        135deg,
-        rgba(24, 161, 203, 1) 0%,
-        rgba(255, 255, 255, 1) 35%,
-        rgba(255, 255, 255, 1) 65%,
-        rgba(253, 172, 0, 1) 100%
+      90deg,
+      rgba(24, 161, 203, 1) 0%,
+      rgba(255, 255, 255, 1) 35%,
+      rgba(255, 255, 255, 1) 65%,
+      rgba(253, 172, 0, 1) 100%
     );
-
+  
     width: 100vw;
-    height:100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.startMain{
     height: 100vh;
     display: flex;
     align-items: center;
-}
-
-.startButton{
-    border: none;
-    outline: none;
-    padding: 15px;
-    font-size: 32px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: 0px 0px 3px grey;
-}
-
-.playerSummaryContainer {
-    width: 500px;
-    height: 150px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 3px black;
-  
-    color: white;
-  
-    padding: 25px;
-    box-sizing: border-box;
-  
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  
-  .info {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .name,
-  .level {
-    font-size: 32px;
-  }
-
-  .barContainer {
-    display: flex;
-    border-radius: 5px;
-    gap: 5px;
-    padding: 5px;
-    align-items: center;
-    background-color: white;
-  }
-  
-  .barLabel {
-    font-size: 32px;
-    font-weight: bold;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 50px;
-    color: black;
-  }
-  
-  .barMax {
-    height: 35px;
-    border-radius: 5px;
-    overflow: hidden;
-    box-sizing: border-box;
-    flex: 1;
-    background-color: lightgray;
-  }
-  .barValue {
-    height: 100%;
-    background-color: #0566fa;
-  
-    transition: 0.35s;
-  }
-

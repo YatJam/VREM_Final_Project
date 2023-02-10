@@ -1,19 +1,17 @@
 import React from 'react'
-import './CombatGame.css'
+import './Bar.css'
 
-const Bar = ({ label, value, maxValue }) => {
+const Bar = ({ value, maxValue, label }) => {
 
   return (
     <>
     <div className="barContainer">
-        <div className="barLabel">
+        <div className="label">
             {label}
         </div>
-        <div className="barMax">
-
+        <div className="max">
         </div>
-        <div className="barValue" style={{ width: `${(value / maxValue) * 100}%`}}>
-
+        <div className="value" style={{ width: `${(value / maxValue) * 100}%` }}>
         </div>
     </div>
     </>

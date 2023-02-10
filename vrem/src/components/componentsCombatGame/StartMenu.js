@@ -1,5 +1,5 @@
 import React from 'react'
-import './CombatGame.css'
+import './StartMenu.css'
 
 
 
@@ -7,7 +7,7 @@ const StartMenu = ({ onStartClick }) => {
 
   return (
     <>
-    <div className="startMain">
+    <div className="startContainer">
         <button className="startButton" onClick={onStartClick}>
             Start Game
             </button>

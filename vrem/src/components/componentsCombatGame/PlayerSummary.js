@@ -1,6 +1,6 @@
 import React from 'react'
 import Bar from './Bar';
-import './CombatGame.css'
+import './PlayerSummary.css'
 
 const red = '#821200';
 const blue = '#1953cb';

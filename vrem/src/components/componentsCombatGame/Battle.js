@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { opponentStats, playerStats } from './Characters'
-import './CombatGame.css'
+import './Battle.css'
 import PlayerSummary from './PlayerSummary'
 
 const Battle =() => {
@@ -11,7 +11,7 @@ const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
 
   return (
         <>
-        <div className="battleMain" >
+        <div className="battleContainer" >
             <div className="opponent">
               <div className="summary">
                 <PlayerSummary main={false} 
