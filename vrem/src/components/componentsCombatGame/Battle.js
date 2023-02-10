@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { opponentStats, playerStats } from './Characters'
 import './Battle.css'
 import PlayerSummary from './PlayerSummary'
+import BattleMenu from './BattleMenu'
 
 const Battle =() => {
 
@@ -32,7 +33,9 @@ const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
                 />
               </div>
             </div>
-            Battle menu component
+            <div className="hudChild">
+              <BattleMenu onAttack={() => console.log('Attack!')} onMagic={() => console.log('Magic!')} onHeal={() => console.log('Heal!')}/>
+            </div>
         </div>
         
         </>
