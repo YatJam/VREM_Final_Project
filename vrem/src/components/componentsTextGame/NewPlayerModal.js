@@ -3,43 +3,27 @@ import ReactDom from 'react-dom'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './NewPlayerModal.css'
+import UserService from '../../service/UserService';
 
 function NewPlayerModal({ closeModal }) {
     const [playerName, setPlayerName] = useState("")
-    const [characterClass, setCharacterClass] = useState("Amazon")
+    const [characterClass, setCharacterClass] = useState("dwarf")
     const [armour, setArmour] = useState("rags")
     const [weapon, setWeapon] = useState("bareHands")
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          let res = await fetch("http://localhost:8080/users/", {
-            method: "POST",
-            body: JSON.stringify({
-              playerName: playerName,
-              characterClass: characterClass,
-              armour: armour,
-              weapon: weapon,
-            }),
-          });
-          const resJson = await res.json();
-          if (res.status === 200) {
-            setPlayerName("");
-            setCharacterClass("");
-            setArmour("");
-            setWeapon("");
-            setMessage("User created successfully");
-          } else {
-            setMessage("Some error occured");
-          }
-        } catch (err) {
-          console.log(err);
-        }
-      };
+    const onOptionChange = event => {
+        setCharacterClass(event.target.value)
+      }
 
-  const onOptionChange = e => {
-    setCharacter(e.target.value)
-  }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        UserService.addUser({
+            playerName: playerName,
+            characterClass: characterClass,
+            armour: armour,
+            weapon: weapon,
+        });
+    }
 
   return ReactDom.createPortal(
     <div className="modalBackground">
@@ -59,7 +43,7 @@ function NewPlayerModal({ closeModal }) {
                         type="text"
                         value={playerName}
                         placeholder="Player Name"
-                        onChange={(e) => setPlayerName(e.target.value)} />
+                        onChange={(event) => setPlayerName(event.target.value)} />
                     </div>
                     <div>
                     <input
@@ -120,15 +104,15 @@ function NewPlayerModal({ closeModal }) {
                         <label htmlFor='terms'>Terms of service</label>
                         <input type="checkbox" name="terms" value="checked" />
                     </div>
-
+                    <button type="submit">submit</button>
                 </form>
             </div>
             <div className="footer">
                 <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
                 <Link to='/game'>
-                <button type="submit">create player</button>{' '}
+                <button >create player</button>{' '}
                 </Link>
-                <div className="message">{message ? <p>{message}</p> : null}</div>
+                
             </div>
 
         </div>
