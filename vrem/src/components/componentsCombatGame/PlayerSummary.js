@@ -1,31 +1,26 @@
-import React from 'react'
-import Bar from './Bar';
+import Bar from './Bar'
 import './PlayerSummary.css'
 
-const red = '#821200';
+const red = '#821400';
 const blue = '#1953cb';
 
-const PlayerSummary = ({ main, name, level, health, maxHealth }) => {
-
+const PlayerSummary = ({ main, name, level, health, maxHealth,}) => {
+  
   return (
     <>
-    <div className="playerSummaryContainer" style={{ backgroundColor: main ? red : blue}}>
-        Player Summary Component
-        <div className="info">
-            <div className="name">
-                {name}
-            </div>
-            <div className="level">
-               Lvl: {level}
-            </div>
+    <div
+      className="playerSummaryContainer"
+      style={{ backgroundColor: main ? red : blue }}>
+      <div className="info">
+        <div className="name">{name}</div>
+        <div className="level">Lvl {level}</div>
+      </div>
 
-        </div>
-        <div className="health">
-            <Bar label="HP" value={health} maxValue={maxHealth}/>
-        </div>
+      <div className="health">
+        <Bar label="HP" value={health} maxValue={maxHealth} />
+      </div>
     </div>
-    </>
+  </>
   )
-}
-
+  };
 export default PlayerSummary

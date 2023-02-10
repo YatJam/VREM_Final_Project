@@ -10,8 +10,7 @@ const Bar = ({ value, maxValue, label }) => {
             {label}
         </div>
         <div className="max">
-        </div>
-        <div className="value" style={{ width: `${(value / maxValue) * 100}%` }}>
+          <div className="value" style={{width: `${(value / maxValue) * 100}%` }}></div>
         </div>
     </div>
     </>
