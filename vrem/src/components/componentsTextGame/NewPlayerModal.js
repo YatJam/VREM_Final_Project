@@ -5,7 +5,37 @@ import { useState } from 'react';
 import './NewPlayerModal.css'
 
 function NewPlayerModal({ closeModal }) {
-    const [character, setCharacter] = useState("Amazon")
+    const [playerName, setPlayerName] = useState("")
+    const [characterClass, setCharacterClass] = useState("Amazon")
+    const [armour, setArmour] = useState("rags")
+    const [weapon, setWeapon] = useState("bareHands")
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          let res = await fetch("http://localhost:8080/users/", {
+            method: "POST",
+            body: JSON.stringify({
+              playerName: playerName,
+              characterClass: characterClass,
+              armour: armour,
+              weapon: weapon,
+            }),
+          });
+          const resJson = await res.json();
+          if (res.status === 200) {
+            setPlayerName("");
+            setCharacterClass("");
+            setArmour("");
+            setWeapon("");
+            setMessage("User created successfully");
+          } else {
+            setMessage("Some error occured");
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      };
 
   const onOptionChange = e => {
     setCharacter(e.target.value)
@@ -22,10 +52,14 @@ function NewPlayerModal({ closeModal }) {
             </div>
             <div className="body">
                 <p>Insert your player details.</p>
-                <form className="createPlayerForm">
+                <form className="createPlayerForm" onSubmit={handleSubmit}>
                     <div>
                     <label htmlFor='name'>Player Name</label>
-                    <input type='text' name="playerName" placeholder='Player Name' />
+                    <input
+                        type="text"
+                        value={playerName}
+                        placeholder="Player Name"
+                        onChange={(e) => setPlayerName(e.target.value)} />
                     </div>
                     <div>
                     <input
@@ -33,7 +67,7 @@ function NewPlayerModal({ closeModal }) {
                         name="character"
                         value="Amazon"
                         id="Amazon"
-                        checked={character === "Amazon"}
+                        checked={characterClass === "Amazon"}
                         onChange={onOptionChange}
                     />
                     <label htmlFor="amazon">Amazon</label>
@@ -43,7 +77,7 @@ function NewPlayerModal({ closeModal }) {
                         name="character"
                         value="Dwarf"
                         id="Dwarf"
-                        checked={character === "Dwarf"}
+                        checked={characterClass === "Dwarf"}
                         onChange={onOptionChange}
                     />
                     <label htmlFor="dwarf">Dwarf</label>
@@ -53,7 +87,7 @@ function NewPlayerModal({ closeModal }) {
                         name="character"
                         value="Outcast"
                         id="Outcast"
-                        checked={character === "Outcast"}
+                        checked={characterClass === "Outcast"}
                         onChange={onOptionChange}
                     />
                     <label htmlFor="outcast">Outcast</label>
@@ -63,7 +97,7 @@ function NewPlayerModal({ closeModal }) {
                         name="character"
                         value="Paladin"
                         id="Paladin"
-                        checked={character === "Paladin"}
+                        checked={characterClass === "Paladin"}
                         onChange={onOptionChange}
                     />
                     <label htmlFor="paladin">Paladin</label>
@@ -73,13 +107,13 @@ function NewPlayerModal({ closeModal }) {
                         name="character"
                         value="Warlock"
                         id="Warlock"
-                        checked={character === "Warlock"}
+                        checked={characterClass === "Warlock"}
                         onChange={onOptionChange}
                     />
                     <label htmlFor="warlock">Warlock</label>
 
                     <p>
-                        Select character <strong>{character}</strong>
+                        Select character <strong>{characterClass}</strong>
                     </p>
                     </div>
                     <div>
@@ -92,8 +126,9 @@ function NewPlayerModal({ closeModal }) {
             <div className="footer">
                 <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
                 <Link to='/game'>
-                <button>create player</button>{' '}
+                <button type="submit">create player</button>{' '}
                 </Link>
+                <div className="message">{message ? <p>{message}</p> : null}</div>
             </div>
 
         </div>
