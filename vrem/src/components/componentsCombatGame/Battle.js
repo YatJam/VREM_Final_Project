@@ -51,11 +51,17 @@ const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
                 level={playerStats.level}
                 maxHealth={playerStats.maxHealth}/>
               </div>
-            </div>
+
+              <div className="hud">
+
+                <div className="hudChild">
+                  <BattleMenu onAttack={() => console.log('Attack!')} onMagic={() => console.log('Magic!')} onHeal={() => console.log('Heal!')}/>
+                </div>
+
+              </div>
+          </div>
+            
           
-            <div className="hudChild">
-              <BattleMenu onAttack={() => console.log('Attack!')} onMagic={() => console.log('Magic!')} onHeal={() => console.log('Heal!')}/>
-            </div>
         </div>
         
         </>
