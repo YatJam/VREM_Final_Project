@@ -5,7 +5,7 @@ import Player from '../../image/demoKnight.png';
 import Scene from '../../image/demoScene.png'
 import './TextGame.css'
 
-const TextGame = ({events}) => {
+const TextGame = ({events, playerName, armour, weapon}) => {
     const [openInventory, setOpenInventory] = useState(false)
     const [openEquipment, setOpenEquipment] = useState(false)
 
@@ -14,11 +14,17 @@ const TextGame = ({events}) => {
             <h1>This is the main containerz</h1>
         <div className="gameScreenWrapper">
             <div className="playerImageAndStatsContainer">
+                <div className="playerName">Player Name: {playerName}</div>
                 <div className="playerImageContainer">
                     <img className="playerImage" src={Player} alt='placeholderKnight' />
                 </div>
                 <div className="playerStatsContainer">
-                    player stats here
+                    <div className="PlayerHealth">Player Health: </div>
+                    <div className="weaponandarmourcontainer">
+                        <div className="weapon">Weapon: {weapon} </div>
+                        <div className="armour">Armour: {armour}</div>
+                    </div>
+
                 </div>
             </div>
             <div className="textGameContainer">

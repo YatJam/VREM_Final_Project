@@ -28,6 +28,11 @@ const HomeContainer = () => {
                     <button className="openModalBtn" onClick={() => setOpenModal(true)}>Start Game</button>
                     {openModal && <NewPlayerModal closeModal={setOpenModal}/>}
                 </div>
+                <div>
+                    <Link to="/combat">
+                    <button>combat</button>{' '}
+                    </Link>
+                </div>
             </HomePageWrapper>
         </main>
     );

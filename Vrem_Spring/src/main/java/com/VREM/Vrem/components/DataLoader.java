@@ -40,8 +40,20 @@ public class DataLoader implements ApplicationRunner{
     }
 
     public void run(ApplicationArguments args) {
-        CharacterClass Dwarf = new CharacterClass("Dwarf", 400, "I am going to chin you");
-        characterClassRepository.save(Dwarf);
+        CharacterClass amazon = new CharacterClass("Amazon", 120, "I am Amazon");
+        characterClassRepository.save(amazon);
+
+        CharacterClass dwarf = new CharacterClass("Dwarf", 400, "I am going to chin you");
+        characterClassRepository.save(dwarf);
+
+        CharacterClass outcast = new CharacterClass("Outcast", 110, "I am Outcast");
+        characterClassRepository.save(outcast);
+
+        CharacterClass paladin = new CharacterClass("Paladin", 140, "I am Paladin");
+        characterClassRepository.save(paladin);
+
+        CharacterClass warlock = new CharacterClass("Warlock", 100, "I am Warlock");
+        characterClassRepository.save(warlock);
 
         Weapon barehands = new Weapon("Bare Hands", 5);
         weaponRepository.save(barehands);
@@ -49,13 +61,13 @@ public class DataLoader implements ApplicationRunner{
         Armour rags = new Armour("Rags", 1);
         armourRepository.save(rags);
 
-        User john = new User("John", Dwarf, rags, barehands);
+        User john = new User("John", dwarf, rags, barehands);
         userRepository.save(john);
 
-        User jackie = new User("Jackie", Dwarf, rags, barehands);
+        User jackie = new User("Jackie", dwarf, rags, barehands);
         userRepository.save(jackie);
 
-        User ewa = new User("Ewa", Dwarf, rags, barehands);
+        User ewa = new User("Ewa", dwarf, rags, barehands);
         userRepository.save(ewa);
 
         Choice choice1 = new Choice("Go to Event 1", 1);
