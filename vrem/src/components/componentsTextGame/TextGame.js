@@ -1,4 +1,6 @@
 import { React, useEffect, useState } from "react";
+import InventoryModal from "./InventoryModal";
+import EquipmentModal from "./EquipmentModal";
 import Player from '../../image/demoKnight.png';
 import Scene from '../../image/demoScene.png'
 import './TextGame.css'
