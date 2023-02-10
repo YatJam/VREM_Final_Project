@@ -1,8 +1,8 @@
 export const playerStats = {
     level: 44,
     maxHealth: 177,
-    name: 'Mega Man',
-    img: '/assets/placeholderknight.png',
+    name: 'Outcast Knight',
+    img: '../../image/placeholderknight.png',
   
     magic: 32,
     attack: 50,
@@ -11,9 +11,9 @@ export const playerStats = {
   };
   export const opponentStats = {
     level: 44,
-    name: 'Samus',
+    name: 'Skeleton Warrior',
     maxHealth: 188,
-    img: '/assets/placeholderskeleton.png',
+    img: '../../image/placeholderskeleton.png',
   
     magic: 50,
     attack: 32,
