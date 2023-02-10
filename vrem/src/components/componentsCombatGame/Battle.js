@@ -23,16 +23,36 @@ const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
               </div>
 
             </div>
+
+          <div className="characters">
+            <div className="gameHeader">
+              {playerStats.name} vs {opponentStats.name}
+              </ div>
+
+              <div className="gameImages">
+
+                <div className="playerSprite">
+                  <img src={playerStats.img} alt={playerStats.name}/>
+                </div>
+
+                <div className="opponentSprite">
+                  <img src={opponentStats.img} alt={opponentStats.name}/>
+                </div>
+
+              </div>
+
+          </div>
+
             <div className="user" >
               <div className="summary">
                 <PlayerSummary main 
                 health={playerHealth}
                 name={playerStats.name}
                 level={playerStats.level}
-                maxHealth={playerStats.maxHealth}
-                />
+                maxHealth={playerStats.maxHealth}/>
               </div>
             </div>
+          
             <div className="hudChild">
               <BattleMenu onAttack={() => console.log('Attack!')} onMagic={() => console.log('Magic!')} onHeal={() => console.log('Heal!')}/>
             </div>
