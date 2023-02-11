@@ -8,6 +8,7 @@ import PlayerSummary from './PlayerSummary'
 import BattleMenu from './BattleMenu'
 import BattleAnnouncer from './BattleAnnouncer'
 import useAIOpponent from './useAIOpponent'
+import { wait } from './Helper'
 
 const Battle =({ onGameEnd }) => {
   const [sequence, setSequence] = useState({});
@@ -24,8 +25,13 @@ if(aiChoice && turn === 1 && !inSequence){
 }, [turn, aiChoice, inSequence]);
 
 useEffect(() => {
-
-}, [playerHealth, opponentHealth])
+  if (playerHealth === 0 || opponentHealth === 0){
+    (async () => {
+      await wait(1500);
+      onGameEnd(playerHealth === 0 ? opponentStats : playerStats);
+    })();
+  }
+}, [playerHealth, opponentHealth, onGameEnd])
 
   return (
         <>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import StartMenu from '../components/componentsCombatGame/StartMenu';
 import '../components/componentsCombatGame/CombatGame.css'
 import Battle from '../components/componentsCombatGame/Battle';
+import EndMenu from '../components/componentsCombatGame/EndMenu';
 
 function CombatContainer() {
     const [mode, setMode] = useState('start');
@@ -20,7 +21,10 @@ function CombatContainer() {
           setMode('gameOver');
         }}/>}
 
-        {mode === 'gameOver' && <>Game Over</>}
+        {mode === 'gameOver' && <EndMenu winner={winner} onStartClick={() => {
+          setWinner(undefined);
+          setMode('battle');
+        }}/>}
     </div>
     </>
   )
