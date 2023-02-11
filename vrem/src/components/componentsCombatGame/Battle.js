@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { opponentStats, playerStats } from './Characters'
+// import { useBattleSequence } from './useBattleSequence'
+import useBattleSequence from './useBattleSequence'
 import './Battle.css'
 import PlayerSummary from './PlayerSummary'
 import BattleMenu from './BattleMenu'
 import BattleAnnouncer from './BattleAnnouncer'
+import useAIOpponent from './useAIOpponent'
 
-const Battle =() => {
+const Battle =({ onGameEnd }) => {
+  const [sequence, setSequence] = useState({});
 
-const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)  
-const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
-const [announcerMessage, setAnnouncerMessage] = useState('');
+const {turn, inSequence, playerHealth, opponentHealth, playerAnimation, opponentAnimation, announcerMessage} = useBattleSequence(sequence);
+
+const aiChoice = useAIOpponent(turn);
+
+useEffect(() => {
+if(aiChoice && turn === 1 && !inSequence){
+  setSequence({ turn, mode: aiChoice });
+}
+
+}, [turn, aiChoice, inSequence]);
 
   return (
         <>
@@ -34,11 +45,11 @@ const [announcerMessage, setAnnouncerMessage] = useState('');
               <div className="gameImages">
 
                 <div className="playerSprite">
-                  <img src={playerStats.img} alt={playerStats.name}/>
+                  <img className={[playerAnimation]} src={playerStats.img} alt={playerStats.name}/>
                 </div>
 
                 <div className="opponentSprite">
-                  <img src={opponentStats.img} alt={opponentStats.name}/>
+                  <img className={[opponentAnimation]} src={opponentStats.img} alt={opponentStats.name}/>
                 </div>
 
               </div>
@@ -61,7 +72,7 @@ const [announcerMessage, setAnnouncerMessage] = useState('');
                 </div>
 
                 <div className="hudChild">
-                  <BattleMenu onAttack={() => console.log('Attack!')} onMagic={() => console.log('Magic!')} onHeal={() => console.log('Heal!')}/>
+                  <BattleMenu onAttack={() => setSequence({ turn, mode: 'attack'})} onMagic={() => setSequence({ turn, mode: 'magic'})} onHeal={() => setSequence({ turn, mode: 'heal'})}/>
                 </div>
 
               </div>
