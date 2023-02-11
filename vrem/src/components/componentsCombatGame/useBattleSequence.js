@@ -34,8 +34,18 @@ const useBattleSequence = () => {
                         turn === 0 ? setPlayerAnimation('static') : setOpponentAnimation('static');
                         await wait(500);
 
-                        turn === 0 ? setPlayerAnimation('damage') : setOpponentAnimation('damage');
+                        turn === 0 ? setOpponentAnimation('damage') : setPlayerAnimation('damage');
                         await wait(750);
+
+                        turn === 0 ? setOpponentAnimation('static') : setPlayerAnimation('static');
+                        setAnnouncerMessage(`${receiver.name} felt that!`);
+
+                        turn === 0 ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0)) 
+                        : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0));
+                        await wait(2000);
+
+                        setAnnouncerMessage(`Now it's ${receiver.name} turn!`);
+                        await wait();
 
 
                     })();
