@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { wait } from './Helper'
 
 const useTypedMessage = (message) => {
 

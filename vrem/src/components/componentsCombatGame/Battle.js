@@ -4,11 +4,13 @@ import { opponentStats, playerStats } from './Characters'
 import './Battle.css'
 import PlayerSummary from './PlayerSummary'
 import BattleMenu from './BattleMenu'
+import BattleAnnouncer from './BattleAnnouncer'
 
 const Battle =() => {
 
 const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)  
 const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
+const [announcerMessage, setAnnouncerMessage] = useState('');
 
   return (
         <>
@@ -53,6 +55,10 @@ const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
               </div>
 
               <div className="hud">
+
+                <div className="hudChild">
+                  <BattleAnnouncer message={announcerMessage || `What will ${playerStats.name} do?`}/>
+                </div>
 
                 <div className="hudChild">
                   <BattleMenu onAttack={() => console.log('Attack!')} onMagic={() => console.log('Magic!')} onHeal={() => console.log('Heal!')}/>
