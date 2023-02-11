@@ -23,6 +23,10 @@ if(aiChoice && turn === 1 && !inSequence){
 
 }, [turn, aiChoice, inSequence]);
 
+useEffect(() => {
+
+}, [playerHealth, opponentHealth])
+
   return (
         <>
         <div className="battleContainer" >

@@ -6,6 +6,7 @@ import Battle from '../components/componentsCombatGame/Battle';
 
 function CombatContainer() {
     const [mode, setMode] = useState('start');
+    const [winner, setWinner] = useState();
 
   return (
     <>
@@ -14,7 +15,10 @@ function CombatContainer() {
             <StartMenu onStartClick={() => setMode('battle')}/>
             )}
 
-        {mode === 'battle' && <Battle/>}
+        {mode === 'battle' && <Battle onGameEnd={winner => {
+          setWinner(winner);
+          setMode('gameOver');
+        }}/>}
 
         {mode === 'gameOver' && <>Game Over</>}
     </div>
