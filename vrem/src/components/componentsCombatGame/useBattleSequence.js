@@ -45,8 +45,10 @@ const useBattleSequence = () => {
                         await wait(2000);
 
                         setAnnouncerMessage(`Now it's ${receiver.name} turn!`);
-                        await wait();
+                        await wait(1500);
 
+                        setTurn(turn === 0 ? 1 : 0);
+                        setInSequence(false);
 
                     })();
                     break;
