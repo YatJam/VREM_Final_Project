@@ -5,6 +5,7 @@ import TextGame from '../components/componentsTextGame/TextGame';
 
 const GameContainer = () => {
     const [allEvents, setAllEvents] = useState([]);
+    
 
     useEffect(() => {
         EventService.getEvents().then((events) => setAllEvents(events));

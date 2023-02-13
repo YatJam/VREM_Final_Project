@@ -1,35 +1,14 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import './NewPlayerModal.css'
-import UserService from '../../service/UserService';
+import { PlayerContext } from '../../Helper/useContext';
 
 function NewPlayerModal({ closeModal }) {
-    const [playerName, setPlayerName] = useState("")
-    const [characterClass, setCharacterClass] = useState("")
-    const [weapon, setWeapon] = useState([])
-    const [armour, setArmour] = useState([])
-    const [playerHealth, setplayerHealth] = useState(0)
-
-    useEffect(() => {
-          const weaponList = ['sword', 'axe', 'hammer'];
-          setWeapon(weaponList[Math.floor(Math.random() * weaponList.length)]);
-        
-      }, []);
-
-    useEffect(() => {
-        const armourList = ['cloth', 'leather', 'mail'];
-        setArmour(armourList[Math.floor(Math.random() * armourList.length)]);
-      
-    }, []);
-
-    useEffect(() => {
-        const minHealth = 100;
-        const maxHealth = 160;
-        setplayerHealth(minHealth + (Math.floor(Math.random() * (maxHealth - minHealth))));
-      
-    }, []);
+    const [characterClass, setCharacterClass] = useState([])
+    const { playerName, setPlayerName } = useContext(PlayerContext);
+   
 
   
     const handlePlayerNameChange = (event) => {

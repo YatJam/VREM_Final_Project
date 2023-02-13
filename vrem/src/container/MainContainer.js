@@ -7,11 +7,14 @@ import Updates from '../components/componentsNavPages/Updates';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CombatContainer from './CombatContainer';
+import { ClassContext, PlayerContext } from '../Helper/useContext';
 
 const MainContainer = () => {
     const location = useLocation();
     const [displayLocation, setDisplayLocation] = useState(location);
     const [transitionStage, setTransitionStage] = useState('fadeIn');
+    const [playerName, setPlayerName] = useState(null);
+
     useEffect(() => {
         if (location !== displayLocation) setTransitionStage('fadeOut');
     }, [location, displayLocation]);
@@ -25,6 +28,8 @@ const MainContainer = () => {
                     setDisplayLocation(location);
                 }
             }}>
+                 <PlayerContext.Provider value={{ playerName, setPlayerName }}>
+                    <ClassContext.Provider value="Dwarf">
             <Routes location={displayLocation}>
                 <Route path='/' element={<HomeContainer />} />
                 <Route path='/about' element={<About /> } />
@@ -34,6 +39,8 @@ const MainContainer = () => {
                 <Route path='/combat' element={<CombatContainer />} />
                 {/* <Route path='/game' element={<GameContainer />} /> */}   
             </Routes>
+            </ClassContext.Provider>
+                </PlayerContext.Provider>
         </section>
     );
 };
