@@ -1,29 +1,52 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './NewPlayerModal.css'
 import UserService from '../../service/UserService';
 
 function NewPlayerModal({ closeModal }) {
     const [playerName, setPlayerName] = useState("")
-    const [characterClass, setCharacterClass] = useState("dwarf")
-    const [armour, setArmour] = useState("rags")
-    const [weapon, setWeapon] = useState("bareHands")
+    const [characterClass, setCharacterClass] = useState("")
+    const [weapon, setWeapon] = useState([])
+    const [armour, setArmour] = useState([])
+    const [playerHealth, setplayerHealth] = useState(0)
 
-    const onOptionChange = event => {
+    useEffect(() => {
+          const weaponList = ['sword', 'axe', 'hammer'];
+          setWeapon(weaponList[Math.floor(Math.random() * weaponList.length)]);
+        
+      }, []);
+
+    useEffect(() => {
+        const armourList = ['cloth', 'leather', 'mail'];
+        setArmour(armourList[Math.floor(Math.random() * armourList.length)]);
+      
+    }, []);
+
+    useEffect(() => {
+        const minHealth = 100;
+        const maxHealth = 160;
+        setplayerHealth(minHealth + (Math.floor(Math.random() * (maxHealth - minHealth))));
+      
+    }, []);
+
+  
+    const handlePlayerNameChange = (event) => {
+        setPlayerName(event.target.value);
+      }
+
+    const onOptionChange = (event) => {
         setCharacterClass(event.target.value)
       }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        UserService.addUser({
-            playerName: playerName,
-            characterClass: characterClass,
-            armour: armour,
-            weapon: weapon,
-        });
+        console.log(playerName)
+        console.log(characterClass)
     }
+    
+
 
   return ReactDom.createPortal(
     <div className="modalBackground">
@@ -43,7 +66,7 @@ function NewPlayerModal({ closeModal }) {
                         type="text"
                         value={playerName}
                         placeholder="Player Name"
-                        onChange={(event) => setPlayerName(event.target.value)} />
+                        onChange={handlePlayerNameChange}/>
                     </div>
                     <div>
                     <input
@@ -104,14 +127,13 @@ function NewPlayerModal({ closeModal }) {
                         <label htmlFor='terms'>Terms of service</label>
                         <input type="checkbox" name="terms" value="checked" />
                     </div>
-                    <button type="submit">submit</button>
+                    <Link to='/game'>
+                    <button className="createPlayerbtn" type="submit" >Create Player</button>{' '}
+                    </Link>
                 </form>
             </div>
             <div className="footer">
                 <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
-                <Link to='/game'>
-                <button >create player</button>{' '}
-                </Link>
                 
             </div>
 
@@ -121,4 +143,4 @@ function NewPlayerModal({ closeModal }) {
   )
 }
 
-export default NewPlayerModal
+export default NewPlayerModal;

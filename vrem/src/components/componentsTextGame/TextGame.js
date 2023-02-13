@@ -1,13 +1,36 @@
 import { React, useEffect, useState } from "react";
 import InventoryModal from "./InventoryModal";
 import EquipmentModal from "./EquipmentModal";
+import NewPlayerModal from "./NewPlayerModal";
 import Player from '../../image/demoKnight.png';
 import Scene from '../../image/demoScene.png'
 import './TextGame.css'
 
-const TextGame = ({events, playerName, armour, weapon}) => {
+const TextGame = ({events, playerName, characterClass }) => {
     const [openInventory, setOpenInventory] = useState(false)
     const [openEquipment, setOpenEquipment] = useState(false)
+    const [weapon, setWeapon] = useState([])
+    const [armour, setArmour] = useState([])
+    const [playerHealth, setplayerHealth] = useState(0)
+
+    useEffect(() => {
+          const weaponList = ['sword', 'axe', 'hammer'];
+          setWeapon(weaponList[Math.floor(Math.random() * weaponList.length)]);
+        
+      }, []);
+
+    useEffect(() => {
+        const armourList = ['cloth', 'leather', 'mail'];
+        setArmour(armourList[Math.floor(Math.random() * armourList.length)]);
+      
+    }, []);
+
+    useEffect(() => {
+        const minHealth = 100;
+        const maxHealth = 160;
+        setplayerHealth(minHealth + (Math.floor(Math.random() * (maxHealth - minHealth))));
+      
+    }, []);
 
     return (
         <body>
@@ -15,11 +38,12 @@ const TextGame = ({events, playerName, armour, weapon}) => {
         <div className="gameScreenWrapper">
             <div className="playerImageAndStatsContainer">
                 <div className="playerName">Player Name: {playerName}</div>
+                <div className="CharacterName">Character: {characterClass}</div>
                 <div className="playerImageContainer">
-                    <img className="playerImage" src={Player} alt='placeholderKnight' />
+                    <img className="playerImage" src='../assets/placeholderknight.png' alt='placeholderKnight' />
                 </div>
                 <div className="playerStatsContainer">
-                    <div className="PlayerHealth">Player Health: </div>
+                    <div className="PlayerHealth">Player Health: {playerHealth} </div>
                     <div className="weaponandarmourcontainer">
                         <div className="weapon">Weapon: {weapon} </div>
                         <div className="armour">Armour: {armour}</div>
