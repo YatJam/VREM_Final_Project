@@ -1,55 +1,50 @@
 import { React, useContext, useEffect, useState } from "react";
 import InventoryModal from "./InventoryModal";
 import EquipmentModal from "./EquipmentModal";
-import WeaponService from "../../service/WeaponService";
-import NewPlayerModal from "./NewPlayerModal";
-import Player from '../../image/demoKnight.png';
 import Scene from '../../image/demoScene.png'
 import './TextGame.css'
-import { ClassContext, PlayerContext } from "../../Helper/useContext";
+import { ArmourContext, PlayerContext, WeaponContext } from "../../Helper/useContext";
 
 const TextGame = ({events }) => {
     const [openInventory, setOpenInventory] = useState(false)
     const [openEquipment, setOpenEquipment] = useState(false)
-    const { playerName } = useContext(PlayerContext);
-    const character = useContext(ClassContext);
-
-    // const [weapon, setWeapon] = useState([])
-    // const [armour, setArmour] = useState([])
-    // const [playerHealth, setplayerHealth] = useState(0)
-
-    // useEffect(() => {
-    //       const weaponList = ['sword', 'axe', 'hammer'];
-    //       setWeapon(weaponList[Math.floor(Math.random() * weaponList.length)]);
-        
-    //   }, []);
-
-    //   useEffect(() => {
-    //     WeaponService.getWeapons([1]).then((weapons) => setWeapon(weapons));
-    // }, []);
-
-    // useEffect(() => {
-    //     const minHealth = 100;
-    //     const maxHealth = 160;
-    //     setplayerHealth(minHealth + (Math.floor(Math.random() * (maxHealth - minHealth))));
-      
-    // }, []);
+    const { player } = useContext(PlayerContext);
+    const { weapon } = useContext(WeaponContext);
+    const { armour } = useContext(ArmourContext);
 
     return (
         <body>
             <h1>This is the main containerz</h1>
         <div className="gameScreenWrapper">
             <div className="playerImageAndStatsContainer">
-                <div className="playerName">Player Name: {playerName}</div>
-                <div className="CharacterName">Character: {character}</div>
+                <div className="playerName">
+                <img className="picon" src='../assets/picon.png' alt='picon'/>
+                 layer Name: {player.name}</div>
+                
+                <div className="CharacterName">
+                    <img className="icon" src='../assets/charactericon.png' alt='charactericon'/>
+                    Character: {player.class}
+                    </div>
+
                 <div className="playerImageContainer">
                     <img className="playerImage" src='../assets/placeholderknight.png' alt='placeholderKnight' />
                 </div>
+                
                 <div className="playerStatsContainer">
-                    <div className="PlayerHealth">Player Health:  </div>
+                    <div className="PlayerHealth">
+                    <img className="icon" src='../assets/healthicon.png' alt='healthicon'/>  
+                        Player Health: {player.health}  </div>
                     <div className="weaponandarmourcontainer">
-                        <div className="weapon">Weapon:  </div>
-                        <div className="armour">Armour: </div>
+                        <div className="weapon">
+                        <img className="icon" src={weapon.icon} alt='damageicon'/>
+                            Weapon: {weapon.name} 
+                        </div>
+                        <div className="weaponDamage">
+                        <img className="icon" src='../assets/damageicon.png' alt='damageicon'/>
+                        Damage: {weapon.damage}  </div>
+                        <div className="armour">
+                        <img className="icon" src='../assets/armouricon.png' alt='damageicon'/>  
+                            Armour: {armour.name}</div>
                     </div>
 
                 </div>

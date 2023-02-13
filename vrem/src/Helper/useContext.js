@@ -1,5 +1,7 @@
 import { createContext } from "react";
 
-export const PlayerContext = createContext(null);
+export const PlayerContext = createContext({});
 
-export const ClassContext = createContext(null);
+export const WeaponContext = createContext({});
+
+export const ArmourContext = createContext([]);

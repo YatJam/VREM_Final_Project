@@ -1,18 +1,52 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import './NewPlayerModal.css'
-import { PlayerContext } from '../../Helper/useContext';
+import { PlayerContext, WeaponContext, ArmourContext } from '../../Helper/useContext';
 
 function NewPlayerModal({ closeModal }) {
     const [characterClass, setCharacterClass] = useState([])
-    const { playerName, setPlayerName } = useContext(PlayerContext);
-   
+    const [createName, setCreateName] = useState('');
+    const [weaponStart, setWeaponStart] = useState({});
+    const [armourStart, setArmourStart] = useState([]);
+    const [playerHealth, setPlayerHealth] = useState(0);
+    const { setPlayer } = useContext(PlayerContext);
+    const { setArmour } = useContext(ArmourContext);
+    const { setWeapon } = useContext(WeaponContext);
+    const [playerBuild, setPlayerBuild] = useState({name: null, class: null, health: 0})
+
+    useEffect(() => {
+              const weaponList = [{name: "short sword", damage: 40, icon: '../assets/swordicon.png'}, 
+              {name: "axe", damage: 60, icon: '../assets/axeicon.png'}, 
+              {name: "warhammer" , damage: 70, icon: '../assets/hammericon.png'}, 
+              {name: "spear", damage: 55, icon: '../assets/spearicon.png'}, 
+              {name: "mace", damage: 50, icon: '../assets/maceicon.png'}];
+              setWeaponStart(weaponList[Math.floor(Math.random() * weaponList.length)]);
+            
+          }, []);
+
+
+    useEffect(() => {
+            const armourList = [{name: "leather", defence: 15}, 
+            {name: "chain mail", defence: 20}, 
+            {name: "rags" , defence: 5}, 
+            {name: "padded", defence: 10}];
+            setArmourStart(armourList[Math.floor(Math.random() * armourList.length)]);
+          
+        }, []);
+
+    useEffect(() => {
+                const minHealth = 100;
+                const maxHealth = 160;
+                setPlayerHealth(minHealth + (Math.floor(Math.random() * (maxHealth - minHealth))));
+              
+            }, []);
 
   
     const handlePlayerNameChange = (event) => {
-        setPlayerName(event.target.value);
+        setCreateName(event.target.value);
+        
       }
 
     const onOptionChange = (event) => {
@@ -21,11 +55,19 @@ function NewPlayerModal({ closeModal }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(playerName)
-        console.log(characterClass)
-    }
-    
+        setCreateName("");
+        setCharacterClass("");
+        playerBuild.name = createName;
+        playerBuild.class = characterClass;
+        playerBuild.health = playerHealth;
+        
+        setPlayerBuild(playerBuild)
+        setPlayer(playerBuild);
+        setArmour(armourStart);
+        setWeapon(weaponStart);
 
+        
+    }
 
   return ReactDom.createPortal(
     <div className="modalBackground">
@@ -43,7 +85,7 @@ function NewPlayerModal({ closeModal }) {
                     <label htmlFor='name'>Player Name</label>
                     <input
                         type="text"
-                        value={playerName}
+                        value={createName}
                         placeholder="Player Name"
                         onChange={handlePlayerNameChange}/>
                     </div>
@@ -106,14 +148,19 @@ function NewPlayerModal({ closeModal }) {
                         <label htmlFor='terms'>Terms of service</label>
                         <input type="checkbox" name="terms" value="checked" />
                     </div>
-                    <Link to='/game'>
-                    <button className="createPlayerbtn" type="submit" >Create Player</button>{' '}
-                    </Link>
+                   
+                    {/* <Link to='/game'> */}
+                    <button className="createPlayerbtn" type="submit">Create Player</button>{' '}
+                    {/* </Link> */}
+                   
                 </form>
             </div>
             <div className="footer">
                 <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
                 
+                <Link to='/game'>
+                <button className="createPlayerbtn" type="submit">Create Player</button>{' '}
+                    </Link>
             </div>
 
         </div>

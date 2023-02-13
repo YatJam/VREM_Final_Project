@@ -85,3 +85,13 @@ body {
     object-fit: cover;
     border-radius: 5px;
 }
+
+.icon {
+    height: 60px;
+    vertical-align: middle;
+}
+
+.picon {
+    height: 90px;
+    vertical-align: middle;
+}
