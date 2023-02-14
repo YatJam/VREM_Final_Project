@@ -6,11 +6,19 @@ import './TextGame.css'
 import { ArmourContext, PlayerContext, WeaponContext } from "../../Helper/useContext";
 
 const TextGame = ({events }) => {
-    const [openInventory, setOpenInventory] = useState(false)
-    const [openEquipment, setOpenEquipment] = useState(false)
+    const [openInventory, setOpenInventory] = useState(false);
+    const [openEquipment, setOpenEquipment] = useState(false);
+    const [eventId, setEventId] = useState(0);
     const { player } = useContext(PlayerContext);
     const { weapon } = useContext(WeaponContext);
     const { armour } = useContext(ArmourContext);
+    
+
+    const handleEventChange = (exitId) => {
+        console.log(exitId)
+        setEventId(exitId)
+        console.log(eventId)
+    };
 
     return (
         <body>
@@ -54,13 +62,13 @@ const TextGame = ({events }) => {
                     <img className="sceneImage" src={Scene} alt='placeholderIamge'/>
                 </div>
                 <div className="textContainer">
-                    <p>{events[0] ? events[0].eventStory : null}</p>
+                    <p>{events[eventId]?.eventStory}</p>
                 </div>
                 <div className="buttonContainer" id="btn-grid">
-                    <button className="optionButtons" >{events[0]?.choices[0].choiceType}</button>
-                    <button className="optionButtons" >{events[0] ? events[0].choices[1].choiceType : null}</button>
-                    <button className="optionButtons" >{events[0] ? events[0].choices[2].choiceType : null}</button>
-                    <button className="optionButtons" >{events[0] ? events[0].choices[3].choiceType : null}</button>
+                    <button className="optionButtons" onClick={() => handleEventChange(events[eventId]?.choices[0].exitId)} >{events[eventId]?.choices[0].choiceType}</button>
+                    <button className="optionButtons" onClick={() => handleEventChange(events[eventId]?.choices[1].exitId)}>{events[eventId]?.choices[1].choiceType}</button>
+                    <button className="optionButtons" onClick={() => handleEventChange(events[eventId]?.choices[2].exitId)}>{events[eventId]?.choices[2].choiceType}</button>
+                    <button className="optionButtons" onClick={() => handleEventChange(events[eventId]?.choices[3].exitId)}>{events[eventId]?.choices[3].choiceType}</button>
                 </div>
             </div>
             <div className="actionButtonContainer">
