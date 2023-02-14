@@ -64,7 +64,6 @@ function NewPlayerModal({ closeModal }) {
                 setItem2(itemList[Math.floor(Math.random() * itemList.length)]);
                 setItem3(itemList[Math.floor(Math.random() * itemList.length)]);
             }, []);
-
   
     const handlePlayerNameChange = (event) => {
         setCreateName(event.target.value);
@@ -106,6 +105,11 @@ function NewPlayerModal({ closeModal }) {
 
   return ReactDom.createPortal(
     <div className="modalBackground">
+        <div className="modalWrapper">
+            <div className="leftPanel">
+               <img className="angelleft" src='./assets/angelleft.png' />
+            </div>
+
         <div className="modalContainer">
             <div className="titleCloseBtn">
             <button onClick={() => closeModal(false)}> X </button>
@@ -114,12 +118,13 @@ function NewPlayerModal({ closeModal }) {
                 <h1>Create your player</h1>
             </div>
             <div className="body">
-                <p>Insert your player details.</p>
-                <form className="createPlayerForm" onSubmit={HandleSubmit}>
+                <form className="createPlayerForm" name="createCharacter" onSubmit= {HandleSubmit}>
                     <div>
-                    <label htmlFor='name'>Player Name</label>
-                    <input
+                    <label className="playerName" htmlFor='name'>
+                    <img className="picon" src='../assets/picon.png' alt='picon'/>layer Name</label>
+                    <input className="textbox"
                         type="text"
+                        name="playerName"
                         value={createName}
                         placeholder="Player Name"
                         onChange={handlePlayerNameChange}/>
@@ -165,7 +170,7 @@ function NewPlayerModal({ closeModal }) {
                     />
                     <label htmlFor="paladin">Paladin</label>
 
-                    <input
+                    <input 
                         type="radio"
                         name="character"
                         value="Warlock"
@@ -176,7 +181,7 @@ function NewPlayerModal({ closeModal }) {
                     <label htmlFor="warlock">Warlock</label>
 
                     <p>
-                        Select character <strong>{characterClass}</strong>
+                        Selected character: <strong>{characterClass}</strong>
                     </p>
                     </div>
                     <div>
@@ -184,21 +189,22 @@ function NewPlayerModal({ closeModal }) {
                         <input type="checkbox" name="terms" value="checked" />
                     </div>
                    
-                    {/* <Link to='/game'> */}
-                    <button className="createPlayerbtn" type="submit">Confirm your submission</button>{' '}
-                    {/* </Link> */}
-                   
+                   <div className="buttonWrappper">
+                    <button className="createPlayerbtn" type="submit">Create Player</button>{' '}
+                    <button className="createPlayerbtn" onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
+                   </div>
+
                 </form>
             </div>
             <div className="footer">
-                <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
-                
-                <Link to='/game'>
-                <button className="createPlayerbtn">Create Player</button>{' '}
-                    </Link>
+                {/* <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button> */}
             </div>
 
         </div>
+        <div className="rightPanel">
+            <img className="angelright" src='./assets/angelright.png' />
+        </div>
+            </div>
     </div>,
     document.getElementById('portal')
   )

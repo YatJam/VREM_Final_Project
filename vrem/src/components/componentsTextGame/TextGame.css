@@ -95,3 +95,29 @@ body {
     height: 90px;
     vertical-align: middle;
 }
+
+.openInventorylBtn{
+    width: 300px;
+    height: 60px;
+    margin: 10px;
+    border: none;
+    background-color: darkred;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: antiquewhite;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.openEquipmentlBtn{
+    width: 300px;
+    height: 60px;
+    margin: 10px;
+    border: none;
+    background-color: darkgreen;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: antiquewhite;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}

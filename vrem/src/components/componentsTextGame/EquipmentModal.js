@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import ReactDom from 'react-dom'
-import './NewPlayerModal.css'
+import './EquipmentModal.css'
 import { PlayerContext, WeaponContext, ArmourContext } from "../../Helper/useContext";
 
 function EquipmentModal({ closeModal }) {
@@ -39,23 +39,23 @@ function EquipmentModal({ closeModal }) {
     })
 
   return ReactDom.createPortal(
-    <div className="modalBackground">
-        <div className="modalContainer">
-            <div className="titleCloseBtn">
+    <div className="equipmentBackground">
+        <div className="equipmentContainer">
+            <div className="equipmentCloseBtn">
             <button onClick={() => closeModal(false)}> X </button>
             </div>
-            <div className="title">
-                <h1>Player Equipment</h1>
+            <div className="equipmentTitle">
+                <h1 className="equipmentTitle">Player Equipment</h1>
             </div>
-            <div className="body">
+            <div className="equipmentbody">
                 <ul className="equipmentList"> 
                     {equipmentItems}
                     {/* {equipmentArmour} */}
                 </ul>
                
             </div>
-            <div className="footer">
-                <button onClick={() => closeModal(false)} id="cancelBtn">Close Equipment List</button>
+            <div className="equipmentfooter">
+                <button className="equipmentclosebutton" onClick={() => closeModal(false)} id="cancelBtn">Close Equipment List</button>
             </div>
 
         </div>

@@ -23,7 +23,6 @@ const TextGame = ({events }) => {
 
     return (
         <body>
-            <h1>This is the main containerz</h1>
         <div className="gameScreenWrapper">
             <div className="playerImageAndStatsContainer">
                 <div className="playerName">
@@ -73,9 +72,9 @@ const TextGame = ({events }) => {
                 </div>
             </div>
             <div className="actionButtonContainer">
-                <button className="openModalBtn" onClick={() => setOpenInventory(true)}>Inventory</button>
+                <button className="openInventorylBtn" onClick={() => setOpenInventory(true)}>Inventory</button>
                     {openInventory && <InventoryModal closeModal={setOpenInventory}/>}
-                <button className="openModalBtn" onClick={() => setOpenEquipment(true)}>Equipment</button>
+                <button className="openEquipmentlBtn" onClick={() => setOpenEquipment(true)}>Equipment</button>
                     {openEquipment && <EquipmentModal closeModal={setOpenEquipment}/>}
             </div>
             </div>    

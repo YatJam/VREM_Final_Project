@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import ReactDom from 'react-dom'
-import './NewPlayerModal.css'
+import './inventoryModal.css'
 import { PlayerContext } from "../../Helper/useContext";
 
 function InventoryModal({ closeModal }) {
@@ -9,27 +9,31 @@ function InventoryModal({ closeModal }) {
 
     const inventoryItems = player.inventory.map((inventoryItem) => {
         return <li className="inventoryItem">
-            Item: {inventoryItem.name}, Value:{inventoryItem.value}
+            {inventoryItem.name}{inventoryItem.value}
             </li>
     }) 
 
   return ReactDom.createPortal(
-    <div className="modalBackground">
-        <div className="modalContainer">
+    <div className="inventoryBackground">
+        <div className="inventoryContainer">
             <div className="titleCloseBtn">
             <button onClick={() => closeModal(false)}> X </button>
             </div>
-            <div className="title">
-                <h1>Player Inventory</h1>
+            <div className="inventorytitle">
+                <h1 className="inventorytitle">Player Inventory</h1>
             </div>
-            <div className="body">
+            <div className="inventorybody">
+                <div className="tableheaders">
+                    <h3>Item</h3>
+                    <h3>Value</h3>
+                    </div>
                 <ul className="iventoryList">
                     {inventoryItems}
                 </ul>
                
             </div>
-            <div className="footer">
-                <button onClick={() => closeModal(false)} id="cancelBtn">Close Inventory</button>
+            <div className="footerInventory">
+                <button className="inventoryclosebutton" onClick={() => closeModal(false)} id="closeInventory">Close Inventory</button>
             </div>
 
         </div>
