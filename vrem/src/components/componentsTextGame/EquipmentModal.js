@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import ReactDom from 'react-dom'
 import './NewPlayerModal.css'
+import { PlayerContext } from "../../Helper/useContext";
 
 function EquipmentModal({ closeModal }) {
+    const { player } = useContext(PlayerContext);
 
+    const equipmentItems = player.equipment.map((equipmentItem) => {
+        return <li className="equipmentItem">
+            {equipmentItem.name}{equipmentItem.damage}{equipmentItem.defence}
+            <button className="equip" onclick={() => handleEquipEvent}>equip</button>
+            <button className="drop" onclick={() => handleDropEvent}>drop</button>
+            </li>
+    }) 
 
   return ReactDom.createPortal(
     <div className="modalBackground">
@@ -15,7 +24,9 @@ function EquipmentModal({ closeModal }) {
                 <h1>Player Equipment</h1>
             </div>
             <div className="body">
-                <p>Insert Equipment list</p>
+                <ul className="equipmentList"> 
+                    {equipmentItems}
+                </ul>
                
             </div>
             <div className="footer">

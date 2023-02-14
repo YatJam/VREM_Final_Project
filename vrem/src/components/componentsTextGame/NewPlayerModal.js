@@ -11,10 +11,14 @@ function NewPlayerModal({ closeModal }) {
     const [weaponStart, setWeaponStart] = useState({});
     const [armourStart, setArmourStart] = useState([]);
     const [playerHealth, setPlayerHealth] = useState(0);
+    const [item1, setItem1] = useState([]);
+    const [item2, setItem2] = useState([]);
+    const [item3, setItem3] = useState([]);
     const { setPlayer } = useContext(PlayerContext);
     const { setArmour } = useContext(ArmourContext);
     const { setWeapon } = useContext(WeaponContext);
-    const [playerBuild, setPlayerBuild] = useState({name: null, class: null, health: 0})
+
+    const [playerBuild, setPlayerBuild] = useState({name: null, class: null, health: 0, inventory: [], equipment: []})
 
     useEffect(() => {
               const weaponList = [{name: "short sword", damage: 40, icon: '../assets/swordicon.png'}, 
@@ -43,6 +47,20 @@ function NewPlayerModal({ closeModal }) {
               
             }, []);
 
+    useEffect(() => {
+                const itemList = [{name: "key" , value: 10},
+                                    {name: "malteasers", value: 30},
+                                {name: "ball of yarn", value: 1},
+                            {name: "coin purse", value: 17},
+                        {name: "playing cards", value: 3},
+                    {name: "fish paste", value: 2},
+                {name: "jar of beetroot", value: 50},
+            {name: "React for Beginners", value: 1}];
+                setItem1(itemList[Math.floor(Math.random() * itemList.length)]);
+                setItem2(itemList[Math.floor(Math.random() * itemList.length)]);
+                setItem3(itemList[Math.floor(Math.random() * itemList.length)]);
+            }, []);
+
   
     const handlePlayerNameChange = (event) => {
         setCreateName(event.target.value);
@@ -62,9 +80,17 @@ function NewPlayerModal({ closeModal }) {
         playerBuild.health = playerHealth;
         
         setPlayerBuild(playerBuild)
-        setPlayer(playerBuild);
         setArmour(armourStart);
         setWeapon(weaponStart);
+
+        playerBuild.inventory.push(item1);
+        playerBuild.inventory.push(item2);
+        playerBuild.inventory.push(item3);
+        playerBuild.equipment.push(weaponStart);
+        playerBuild.equipment.push(armourStart);
+
+        setPlayer(playerBuild);
+        console.log(playerBuild.inventory)
 
         
     }
@@ -150,7 +176,7 @@ function NewPlayerModal({ closeModal }) {
                     </div>
                    
                     {/* <Link to='/game'> */}
-                    <button className="createPlayerbtn" type="submit">Create Player</button>{' '}
+                    <button className="createPlayerbtn" type="submit">Confirm your submission</button>{' '}
                     {/* </Link> */}
                    
                 </form>

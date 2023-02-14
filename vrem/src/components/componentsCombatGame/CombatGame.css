@@ -1,11 +1,6 @@
 .combatWrapper {
-    background: linear-gradient(
-      90deg,
-      rgba(24, 161, 203, 1) 0%,
-      rgba(255, 255, 255, 1) 35%,
-      rgba(255, 255, 255, 1) 65%,
-      rgba(253, 172, 0, 1) 100%
-    );
+    background-image: url('/public/assets/dungeonbackground.png');
+    background-size: cover;
   
     width: 100vw;
     height: 100vh;

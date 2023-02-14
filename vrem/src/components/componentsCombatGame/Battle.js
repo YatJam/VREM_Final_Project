@@ -1,7 +1,6 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { playerStats, opponentStats } from './Characters'
-// import { useBattleSequence } from './useBattleSequence'
 import useBattleSequence from './useBattleSequence'
 import './Battle.css'
 import PlayerSummary from './PlayerSummary'
@@ -13,7 +12,6 @@ import { wait } from './Helper'
 
 const Battle =({ onGameEnd }) => {
   const [sequence, setSequence] = useState({});
-
 
 const {turn, inSequence, playerHealth, opponentHealth, playerAnimation, opponentAnimation, announcerMessage} = useBattleSequence(sequence);
 

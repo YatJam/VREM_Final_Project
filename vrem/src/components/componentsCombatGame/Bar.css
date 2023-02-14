@@ -24,11 +24,11 @@
     overflow: hidden;
     box-sizing: border-box;
     flex: 1;
-    background-color: lightgray;
+    background-color: darkred;
   }
   .value {
     height: 100%;
-    background-color: #0566fa;
+    background-color: darkgreen;
   
     transition: 0.35s;
   }
