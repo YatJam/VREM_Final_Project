@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
 import './NewPlayerModal.css'
 import { PlayerContext, WeaponContext, ArmourContext } from '../../Helper/useContext';
@@ -9,7 +9,9 @@ function NewPlayerModal({ closeModal }) {
     const [characterClass, setCharacterClass] = useState([])
     const [createName, setCreateName] = useState('');
     const [weaponStart, setWeaponStart] = useState({});
+    const [weaponStart1, setWeaponStart1] = useState({});
     const [armourStart, setArmourStart] = useState([]);
+    const [armourStart1, setArmourStart1] = useState([]);
     const [playerHealth, setPlayerHealth] = useState(0);
     const [item1, setItem1] = useState([]);
     const [item2, setItem2] = useState([]);
@@ -27,6 +29,7 @@ function NewPlayerModal({ closeModal }) {
               {name: "spear", damage: 55, icon: '../assets/spearicon.png'}, 
               {name: "mace", damage: 50, icon: '../assets/maceicon.png'}];
               setWeaponStart(weaponList[Math.floor(Math.random() * weaponList.length)]);
+              setWeaponStart1(weaponList[Math.floor(Math.random() * weaponList.length)]);
             
           }, []);
 
@@ -37,6 +40,7 @@ function NewPlayerModal({ closeModal }) {
             {name: "rags" , defence: 5}, 
             {name: "padded", defence: 10}];
             setArmourStart(armourList[Math.floor(Math.random() * armourList.length)]);
+            setArmourStart1(armourList[Math.floor(Math.random() * armourList.length)]);
           
         }, []);
 
@@ -71,7 +75,9 @@ function NewPlayerModal({ closeModal }) {
         setCharacterClass(event.target.value)
       }
 
-    const handleSubmit = (event) => {
+    const Navigate = useNavigate();
+
+    const HandleSubmit = (event) => {
         event.preventDefault();
         setCreateName("");
         setCharacterClass("");
@@ -87,12 +93,15 @@ function NewPlayerModal({ closeModal }) {
         playerBuild.inventory.push(item2);
         playerBuild.inventory.push(item3);
         playerBuild.equipment.push(weaponStart);
+        playerBuild.equipment.push(weaponStart1);
         playerBuild.equipment.push(armourStart);
+        playerBuild.equipment.push(armourStart1);
 
         setPlayer(playerBuild);
         console.log(playerBuild.inventory)
 
-        
+        Navigate('/game');
+
     }
 
   return ReactDom.createPortal(
@@ -106,7 +115,7 @@ function NewPlayerModal({ closeModal }) {
             </div>
             <div className="body">
                 <p>Insert your player details.</p>
-                <form className="createPlayerForm" onSubmit={handleSubmit}>
+                <form className="createPlayerForm" onSubmit={HandleSubmit}>
                     <div>
                     <label htmlFor='name'>Player Name</label>
                     <input
@@ -185,7 +194,7 @@ function NewPlayerModal({ closeModal }) {
                 <button onClick={() => closeModal(false)} id="cancelBtn">Cancel</button>
                 
                 <Link to='/game'>
-                <button className="createPlayerbtn" type="submit">Create Player</button>{' '}
+                <button className="createPlayerbtn">Create Player</button>{' '}
                     </Link>
             </div>
 

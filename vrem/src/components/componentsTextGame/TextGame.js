@@ -20,6 +20,7 @@ const TextGame = ({events }) => {
         console.log(eventId)
     };
 
+
     return (
         <body>
             <h1>This is the main containerz</h1>

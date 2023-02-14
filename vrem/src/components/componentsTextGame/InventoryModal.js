@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ReactDom from 'react-dom'
 import './NewPlayerModal.css'
+import { PlayerContext } from "../../Helper/useContext";
 
 function InventoryModal({ closeModal }) {
+    const { player } = useContext(PlayerContext);
 
+
+    const inventoryItems = player.inventory.map((inventoryItem) => {
+        return <li className="inventoryItem">
+            Item: {inventoryItem.name}, Value:{inventoryItem.value}
+            </li>
+    }) 
 
   return ReactDom.createPortal(
     <div className="modalBackground">
@@ -15,7 +23,9 @@ function InventoryModal({ closeModal }) {
                 <h1>Player Inventory</h1>
             </div>
             <div className="body">
-                <p>Insert Inventory list</p>
+                <ul className="iventoryList">
+                    {inventoryItems}
+                </ul>
                
             </div>
             <div className="footer">
