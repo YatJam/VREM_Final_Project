@@ -1,6 +1,7 @@
 import Player from '../../image/placeholderknight.png';
 import Opponent from '../../image/placeholderskeleton.png';
 
+
 export const playerStats = {
   level: 44,
   maxHealth: 20,
@@ -12,6 +13,8 @@ export const playerStats = {
   defense: 30,
   magicDefense: 30,
 };
+
+
 export const opponentStats = {
   level: 44,
   name: 'Skeleton Warrior',
@@ -23,3 +26,4 @@ export const opponentStats = {
   defense: 20,
   magicDefense: 48,
 };
+
