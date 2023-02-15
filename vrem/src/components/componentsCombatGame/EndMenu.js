@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { opponentStats, playerStats } from './Characters'
+import { Link } from 'react-router-dom';
 import './EndMenu.css'
 
 const EndMenu = ({ winner, onStartClick }) => {
@@ -7,13 +8,17 @@ const EndMenu = ({ winner, onStartClick }) => {
 const [endMessage, setEndMessage] = useState('')
 const [returnToGame, setReturnToGame] = useState(false);
 const [gameover, setGameOver] = useState(false);
+const [youWon, setYouWon] = useState(false);
+const [youDead, setYouDead] = useState(false);
 
 useEffect(() => {
   if (winner === playerStats){
-    setEndMessage("The Player has won")
+    setEndMessage("You have been victorious in the fight against the dark...for now.")
+    setYouWon(true)
     setReturnToGame(true)
     } else {
-    setEndMessage("The Opponent Won")
+    setEndMessage("Fear not, your soul and body have been bound to the dark legions! The light will seek a new champion.")
+    setYouDead(true)
     setGameOver(true)
     }
 })
@@ -21,14 +26,21 @@ useEffect(() => {
 
   return (
     <>
+    <div className="endmenuwrapper">
+      <img className="endangelleft" src='./assets/angelleft.png' />
     <div className="endMenuContainer">
-        <h2 className="battleOutcome">{winner.name} has won!</h2>
+        {youWon && <h2 className="battleOutcome">{winner.name} has won the skirmish!</h2>}
+        {youDead && <h2 className="youaredead">YOU ARE DEAD</h2>}
         <h3 className="endMessage">{endMessage}</h3>
-        {/* <button className="startButton" onClick={onStartClick}>Play Again</button> */}
-        {returnToGame && <button className="startButton">return to game</button>}
-        {gameover && <button className="startButton">game over</button>}
+        <Link to="/game">
+        {returnToGame && <button className="returnToButton">return to game</button>}
+        </Link>
+        <Link to='/'>
+        {gameover && <button className="gameOverButton">game over</button>}{' '}
+        </ Link>
     </div>
-    
+    <img className="endangelright" src='./assets/angelright.png' />
+    </div>
     </>
   )
 }

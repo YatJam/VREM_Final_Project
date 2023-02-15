@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 25px;
+  padding: 2px;
   box-sizing: border-box;
 }
 .hud {
@@ -20,7 +20,7 @@
   height: 200px;
 }
 .gameHeader {
-  font-size: 48px;
+  font-size: 32px;
   color: #fdac00;
   text-shadow: 0px 0px 5px #7f0000;
   font-family: 'Press Start 2P', cursive;
@@ -46,7 +46,7 @@
 }
 
 .characters .gameImages img {
-  max-height: 25vh;
+  max-height: 30vh;
   min-height: 150px;
 }
 

@@ -1,16 +1,61 @@
+.endangelleft{
+  position: fixed;
+  top: 51%; 
+  left: 14%;
+  transform: translate(-50%, -50%);
+}
+
+.endangelright{
+  position: fixed;
+  top: 51%; 
+  left: 87%;
+  transform: translate(-50%, -50%);
+}
+
 .endMenuContainer {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .startButton {
-    border: none;
-    outline: none;
-    padding: 15px;
-    font-size: 32px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: 0px 0px 3px gray;
-  }
+ position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  background-color: rgb(112, 0, 0);
+  background-image: url('/public/assets/scrollbackground.png');
+  background-size: contain;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  /* z-index: 10; */
+  width: 670px;
+  height: 490px;
+}
+
+.battleOutcome{
+  color: darkred;
+}
+
+.returnToButton {
+  width: 300px;
+  height: 60px;
+  margin: 10px;
+  border: none;
+  background-color: rgb(15, 15, 192);
+  color: antiquewhite;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.gameOverButton {
+  width: 300px;
+  height: 60px;
+  margin: 10px;
+  border: none;
+  background-color: darkred;
+  color: antiquewhite;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}

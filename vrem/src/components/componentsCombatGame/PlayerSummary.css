@@ -1,12 +1,12 @@
 .playerSummaryContainer{
-    width: 500px;
-    height: 150px;
+    width: 400px;
+    height: 120px;
     border-radius: 10px;
     box-shadow: 0px 0px 3px black;
   
-    color: white;
+    color: antiquewhite;
   
-    padding: 25px;
+    padding: 20px;
     box-sizing: border-box;
   
     display: flex;
@@ -21,5 +21,5 @@
   
   .name,
   .level {
-    font-size: 32px;
+    font-size: 22px;
   }

@@ -1,18 +1,18 @@
 .battleAnnouncerContainer {
-    height: 100%;
+    height: 100px;
     padding: 25px;
     border-radius: 10px;
     box-sizing: border-box;
   
-    color: white;
+    color: antiquewhite;
   
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid black;
-    background-color: #1953cb;
+    border: 1px solid black;
+    background-color: #0c41aa;
   }
   .message {
     text-align: center;
-    font-size: 32px;
+    font-size: 26px;
   }

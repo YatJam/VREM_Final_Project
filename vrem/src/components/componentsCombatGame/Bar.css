@@ -4,13 +4,13 @@
     gap: 5px;
     padding: 5px;
     align-items: center;
-    background-color: white;
+    background-color: antiquewhite;
   }
   
   .label {
-    font-size: 32px;
+    font-size: 26px;
     font-weight: bold;
-    height: 35px;
+    height: 30x;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@
   }
   
   .max {
-    height: 35px;
+    height: 30px;
     border-radius: 5px;
     overflow: hidden;
     box-sizing: border-box;
