@@ -15,8 +15,14 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "event_story")
-    private String eventStory;
+    @Column(name = "event_title")
+    private String eventTitle;
+
+    @Column(name = "event_story1")
+    private String eventStory1;
+
+    @Column(name = "event_story2")
+    private String eventStory2;
 
     @ManyToMany
     @JsonIgnoreProperties({"events"})
@@ -36,8 +42,10 @@ public class Event {
     )
     private List<Choice> choices;
 
-    public Event(String eventStory) {
-        this.eventStory = eventStory;
+    public Event(String eventTitle, String eventStory1, String eventStory2) {
+        this.eventTitle = eventTitle;
+        this.eventStory1 = eventStory1;
+        this.eventStory2 = eventStory2;
         this.choices = new ArrayList<>();
     }
 
@@ -52,12 +60,12 @@ public class Event {
         this.id = id;
     }
 
-    public String getEventStory() {
-        return eventStory;
+    public String getEventStory1() {
+        return eventStory1;
     }
 
-    public void setEventStory(String eventStory) {
-        this.eventStory = eventStory;
+    public void setEventStory1(String eventStory1) {
+        this.eventStory1 = eventStory1;
     }
 
     public List<Choice> getChoices() {
@@ -70,5 +78,21 @@ public class Event {
 
     public void addChoice(Choice choice){
         this.choices.add(choice);
+    }
+
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
+    }
+
+    public String getEventStory2() {
+        return eventStory2;
+    }
+
+    public void setEventStory2(String eventStory2) {
+        this.eventStory2 = eventStory2;
     }
 }

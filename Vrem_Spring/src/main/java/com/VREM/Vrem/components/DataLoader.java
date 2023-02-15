@@ -58,6 +58,12 @@ public class DataLoader implements ApplicationRunner{
         Weapon barehands = new Weapon("Bare Hands", 5);
         weaponRepository.save(barehands);
 
+        Weapon sword = new Weapon("sword", 40);
+        weaponRepository.save(sword);
+
+        Weapon axe = new Weapon("axe", 60);
+        weaponRepository.save(axe);
+
         Armour rags = new Armour("Rags", 1);
         armourRepository.save(rags);
 
@@ -70,50 +76,79 @@ public class DataLoader implements ApplicationRunner{
         User ewa = new User("Ewa", dwarf, rags, barehands);
         userRepository.save(ewa);
 
-        Choice choice1 = new Choice("Go to Event 1", 1);
-        Choice choice2 = new Choice("Go to Event 2", 2);
-        Choice choice3 = new Choice("Go to Event 3", 3);
-        Choice choice4 = new Choice("Go to Event 4", 4);
-        choiceRepository.save(choice1);
-        choiceRepository.save(choice2);
-        choiceRepository.save(choice3);
-        choiceRepository.save(choice4);
+        Choice se1 = new Choice("Continue", 1);
+        Choice se2 = new Choice("...", 0);
+        Choice se3 = new Choice("...", 0);
+        Choice se4 = new Choice("...", 0);
+        choiceRepository.save(se1);
+        choiceRepository.save(se2);
+        choiceRepository.save(se3);
+        choiceRepository.save(se4);
 
-        Event testEvent1 = new Event("This is the first test event");
-        eventRepository.save(testEvent1);
 
-        testEvent1.addChoice(choice1);
-        testEvent1.addChoice(choice2);
-        testEvent1.addChoice(choice3);
-        testEvent1.addChoice(choice4);
-        eventRepository.save(testEvent1);
+        Event startEvent1 = new Event("Prelude", "You are rocked awake by the turbulence of the cart you are riding, bleary eyed, you feel the cold rasp against your skin.", "It is not a natural cold you feel.");
+        eventRepository.save(startEvent1);
 
-       Event testEvent2 = new Event("This is the second test event");
-        eventRepository.save(testEvent2);
+        startEvent1.addChoice(se1);
+        startEvent1.addChoice(se2);
+        startEvent1.addChoice(se3);
+        startEvent1.addChoice(se4);
+        eventRepository.save(startEvent1);
 
-        testEvent2.addChoice(choice1);
-        testEvent2.addChoice(choice2);
-        testEvent2.addChoice(choice3);
-        testEvent2.addChoice(choice4);
-        eventRepository.save(testEvent2);
+       Event startEvent2 = new Event("Prelude", "Wagon Driver: Hey, you are finally awake...", "...we are approaching a town, I won't take you any further.");
+        eventRepository.save(startEvent2);
 
-        Event testEvent3 = new Event("This is the third test event");
-        eventRepository.save(testEvent3);
+        Choice se5 = new Choice("Continue", 2);
+        Choice se6 = new Choice("...", 1);
+        Choice se7 = new Choice("...", 1);
+        Choice se8 = new Choice("...", 1);
+        choiceRepository.save(se5);
+        choiceRepository.save(se6);
+        choiceRepository.save(se7);
+        choiceRepository.save(se8);
 
-        testEvent3.addChoice(choice1);
-        testEvent3.addChoice(choice2);
-        testEvent3.addChoice(choice3);
-        testEvent3.addChoice(choice4);
-        eventRepository.save(testEvent3);
+        startEvent2.addChoice(se5);
+        startEvent2.addChoice(se6);
+        startEvent2.addChoice(se7);
+        startEvent2.addChoice(se8);
+        eventRepository.save(startEvent2);
 
-        Event testEvent4 = new Event("This is the fourth test event");
-        eventRepository.save(testEvent4);
+        Event startEvent3 = new Event("Prelude", "The wagon stumbles to a halt. The wagon driver, slowly looks over their shoulder whilst the ox grabs a restful breath.", "You find yourself at a crossroads.");
+        eventRepository.save(startEvent3);
 
-        testEvent4.addChoice(choice1);
-        testEvent4.addChoice(choice2);
-        testEvent4.addChoice(choice3);
-        testEvent4.addChoice(choice4);
-        eventRepository.save(testEvent4);
+        Choice se9 = new Choice("Go to the village (North)", 3);
+        Choice se10 = new Choice("Go to the lake (East)", 4);
+        Choice se11 = new Choice("Follow the road west (West)", 5);
+        Choice se12 = new Choice("...", 2);
+        choiceRepository.save(se9);
+        choiceRepository.save(se10);
+        choiceRepository.save(se11);
+        choiceRepository.save(se12);
+
+        startEvent3.addChoice(se9);
+        startEvent3.addChoice(se10);
+        startEvent3.addChoice(se11);
+        startEvent3.addChoice(se12);
+        eventRepository.save(startEvent3);
+
+        Event startEvent4 = new Event("The Village outskirts", "A solitary town guardsman, dishevelled in appearance, confronts you.", "STOJ! I cannot let you pass stranger, by order of the Ealdorman.");
+        eventRepository.save(startEvent4);
+
+        Choice se13 = new Choice("Return to crossroad", 6);
+        Choice se14 = new Choice("Fight the guardsman", 7);
+        Choice se15 = new Choice("...", 3);
+        Choice se16 = new Choice("...", 3);
+        choiceRepository.save(se13);
+        choiceRepository.save(se14);
+        choiceRepository.save(se15);
+        choiceRepository.save(se16);
+
+        startEvent4.addChoice(se13);
+        startEvent4.addChoice(se14);
+        startEvent4.addChoice(se15);
+        startEvent4.addChoice(se16);
+        eventRepository.save(startEvent4);
+
 
     }
 }
