@@ -113,7 +113,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent2.addChoice(se8);
         eventRepository.save(startEvent2);
 
-        Event startEvent3 = new Event("Prelude", "The wagon stumbles to a halt. The wagon driver, slowly looks over their shoulder whilst the ox grabs a restful breath.", "You find yourself at a crossroads.");
+        Event startEvent3 = new Event("Crossroads", "The wagon stumbles to a halt. The wagon driver, slowly looks over their shoulder whilst the ox grabs a restful breath.", "You find yourself at a crossroads.");
         eventRepository.save(startEvent3);
 
         Choice se9 = new Choice("Go to the village (North)", 3);
@@ -149,6 +149,76 @@ public class DataLoader implements ApplicationRunner{
         startEvent4.addChoice(se16);
         eventRepository.save(startEvent4);
 
+        Event startEvent5 = new Event("The Mysterious Lake", "You arrive at the lake and notice it has an ethereal glow.", "What do you do?");
+        eventRepository.save(startEvent5);
 
+        Choice se17 = new Choice("Drink the water", 98);
+        Choice se18 = new Choice("Rest", 98);
+        Choice se19 = new Choice("Return to the crossroads", 6);
+        Choice se20 = new Choice("...", 4);
+        choiceRepository.save(se17);
+        choiceRepository.save(se18);
+        choiceRepository.save(se19);
+        choiceRepository.save(se20);
+
+        startEvent5.addChoice(se17);
+        startEvent5.addChoice(se18);
+        startEvent5.addChoice(se19);
+        startEvent5.addChoice(se20);
+        eventRepository.save(startEvent5);
+
+        Event startEvent6 = new Event("The Road West", "You follow the road west and discover the aftermath of an ambush.", "What do you do?");
+        eventRepository.save(startEvent6);
+
+        Choice se21 = new Choice("Investigate", 99);
+        Choice se22 = new Choice("Go to sleep", 99);
+        Choice se23 = new Choice("Turn around", 99);
+        Choice se24 = new Choice("Do not turn around", 99);
+        choiceRepository.save(se21);
+        choiceRepository.save(se22);
+        choiceRepository.save(se23);
+        choiceRepository.save(se24);
+
+        startEvent6.addChoice(se21);
+        startEvent6.addChoice(se22);
+        startEvent6.addChoice(se23);
+        startEvent6.addChoice(se24);
+        eventRepository.save(startEvent6);
+
+        Event startEvent7 = new Event("The Crossroads", "You arrive at the crossroads from where your journey began.", "What do you do?");
+        eventRepository.save(startEvent7);
+
+        Choice se25 = new Choice("Go to the village", 3);
+        Choice se26 = new Choice("Go to the Lake", 4);
+        Choice se27 = new Choice("Take the road West", 5);
+        Choice se28 = new Choice("...", 6);
+        choiceRepository.save(se25);
+        choiceRepository.save(se26);
+        choiceRepository.save(se27);
+        choiceRepository.save(se28);
+
+        startEvent7.addChoice(se25);
+        startEvent7.addChoice(se26);
+        startEvent7.addChoice(se27);
+        startEvent7.addChoice(se28);
+        eventRepository.save(startEvent7);
+
+        Event startEvent8 = new Event("The Village", "You attack the guardsman but are immediately knocked to the ground by their superior martial prowess.", "What do you do?");
+        eventRepository.save(startEvent8);
+
+        Choice se29 = new Choice("Go to the crossroads (crying)", 6);
+        Choice se30 = new Choice("Attack again", 7);
+        Choice se31 = new Choice("...", 7);
+        Choice se32 = new Choice("...", 7);
+        choiceRepository.save(se29);
+        choiceRepository.save(se30);
+        choiceRepository.save(se31);
+        choiceRepository.save(se32);
+
+        startEvent8.addChoice(se29);
+        startEvent8.addChoice(se30);
+        startEvent8.addChoice(se31);
+        startEvent8.addChoice(se32);
+        eventRepository.save(startEvent8);
     }
 }
