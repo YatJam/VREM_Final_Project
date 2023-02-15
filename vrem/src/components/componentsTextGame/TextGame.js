@@ -22,7 +22,7 @@ const TextGame = ({events }) => {
 
 
     return (
-        <body>
+        <>
         <div className="gameScreenWrapper">
             <div className="playerImageAndStatsContainer">
                 <div className="playerName">
@@ -77,8 +77,8 @@ const TextGame = ({events }) => {
                 <button className="openEquipmentlBtn" onClick={() => setOpenEquipment(true)}>Equipment</button>
                     {openEquipment && <EquipmentModal closeModal={setOpenEquipment}/>}
             </div>
-            </div>    
-        </body>
+            </div>   
+        </>
     )
 }
 export default TextGame;

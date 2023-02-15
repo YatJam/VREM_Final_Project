@@ -1,5 +1,6 @@
 .mainScreenContainer{
-    
+    margin: 20px;
+    margin-left: 220px;
     height: 400px;
     width: 1000px;
     display: flex;
