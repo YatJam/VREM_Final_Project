@@ -1,6 +1,7 @@
 import { React, useContext, useEffect, useState } from "react";
 import InventoryModal from "./InventoryModal";
 import EquipmentModal from "./EquipmentModal";
+import { useNavigate } from 'react-router-dom';
 import Scene from '../../image/demoScene.png'
 import './TextGame.css'
 import { ArmourContext, PlayerContext, WeaponContext } from "../../Helper/useContext";
@@ -19,6 +20,19 @@ const TextGame = ({events }) => {
         setEventId(exitId)
         console.log(eventId)
     };
+
+    const Navigate = useNavigate();
+
+    switch(eventId){
+            case 99:{
+                setEventId(2)
+                Navigate('/combat')
+            }
+            break;
+            default:
+                break;
+    }
+
 
 
     return (
