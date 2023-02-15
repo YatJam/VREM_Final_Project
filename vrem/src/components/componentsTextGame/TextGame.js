@@ -76,7 +76,9 @@ const TextGame = ({events }) => {
                     <img className="sceneImage" src={Scene} alt='placeholderIamge'/>
                 </div>
                 <div className="textContainer">
-                    <p>{events[eventId]?.eventStory}</p>
+                    <h4>{events[eventId]?.eventTitle}</h4>
+                    <p>{events[eventId]?.eventStory1}</p>
+                    <p>{events[eventId]?.eventStory2}</p>
                 </div>
                 <div className="buttonContainer" id="btn-grid">
                     <button className="optionButtons" onClick={() => handleEventChange(events[eventId]?.choices[0].exitId)} >{events[eventId]?.choices[0].choiceType}</button>
