@@ -9,7 +9,7 @@ function InventoryModal({ closeModal }) {
 
     const inventoryItems = player.inventory.map((inventoryItem) => {
         return <li className="inventoryItem">
-            {inventoryItem.name}{inventoryItem.value}
+            <b>Item:</b>{inventoryItem.name}<b> Value:</b>{inventoryItem.value}gp
             </li>
     }) 
 
@@ -24,8 +24,6 @@ function InventoryModal({ closeModal }) {
             </div>
             <div className="inventorybody">
                 <div className="tableheaders">
-                    <h3>Item</h3>
-                    <h3>Value</h3>
                     </div>
                 <ul className="iventoryList">
                     {inventoryItems}

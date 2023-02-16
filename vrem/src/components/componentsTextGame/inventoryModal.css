@@ -2,7 +2,9 @@
 .inventoryItem {
     display: flex;
     flex-direction: row;
-    justify-content: left, space-between;
+    justify-content: left;
+    text-align:right;
+    gap: 1rem;
     list-style-type: none;
     text-decoration: none;
     padding: 0.5rem;
@@ -12,7 +14,7 @@
 
 .tableheaders {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: right;
 }
 
@@ -40,7 +42,7 @@
     flex-direction: column;
     padding: 25px;
     /* z-index: 10; */
-    width: 34.5rem;
+    width: 450px;
 }
 
 .inventorytitle {
@@ -66,7 +68,7 @@
     flex: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
 }

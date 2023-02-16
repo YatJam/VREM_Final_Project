@@ -24,6 +24,9 @@ public class Event {
     @Column(name = "event_story2")
     private String eventStory2;
 
+    @Column(name = "event_image")
+    private String eventImage;
+
     @ManyToMany
     @JsonIgnoreProperties({"events"})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -42,10 +45,11 @@ public class Event {
     )
     private List<Choice> choices;
 
-    public Event(String eventTitle, String eventStory1, String eventStory2) {
+    public Event(String eventTitle, String eventStory1, String eventStory2, String eventImage) {
         this.eventTitle = eventTitle;
         this.eventStory1 = eventStory1;
         this.eventStory2 = eventStory2;
+        this.eventImage = eventImage;
         this.choices = new ArrayList<>();
     }
 
@@ -94,5 +98,13 @@ public class Event {
 
     public void setEventStory2(String eventStory2) {
         this.eventStory2 = eventStory2;
+    }
+
+    public String getEventImage() {
+        return eventImage;
+    }
+
+    public void setEventImage(String eventImage) {
+        this.eventImage = eventImage;
     }
 }

@@ -86,7 +86,7 @@ public class DataLoader implements ApplicationRunner{
         choiceRepository.save(se4);
 
 
-        Event startEvent1 = new Event("Prelude", "You are rocked awake by the turbulence of the cart you are riding, bleary eyed, you feel the cold rasp against your skin.", "It is not a natural cold you feel.");
+        Event startEvent1 = new Event("Prelude", "You are rocked awake by the turbulence of the cart you are riding, bleary eyed, you feel the cold rasp against your skin.", "It is not a natural cold you feel.", "../assets/bridge.png");
         eventRepository.save(startEvent1);
 
         startEvent1.addChoice(se1);
@@ -95,7 +95,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent1.addChoice(se4);
         eventRepository.save(startEvent1);
 
-       Event startEvent2 = new Event("Prelude", "Wagon Driver: Hey, you are finally awake...", "...we are approaching a town, I won't take you any further.");
+       Event startEvent2 = new Event("Prelude", "Wagon Driver: Hey, you are finally awake...", "...we are approaching a town, I won't take you any further.", "../assets/bridge.png");
         eventRepository.save(startEvent2);
 
         Choice se5 = new Choice("Continue", 2);
@@ -113,7 +113,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent2.addChoice(se8);
         eventRepository.save(startEvent2);
 
-        Event startEvent3 = new Event("Crossroads", "The wagon stumbles to a halt. The wagon driver, slowly looks over their shoulder whilst the ox grabs a restful breath.", "You find yourself at a crossroads.");
+        Event startEvent3 = new Event("Crossroads", "The wagon stumbles to a halt. The wagon driver, slowly looks over their shoulder whilst the ox grabs a restful breath.", "You find yourself at a crossroads.", "../assets/bridge.png");
         eventRepository.save(startEvent3);
 
         Choice se9 = new Choice("Go to the village (North)", 3);
@@ -131,7 +131,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent3.addChoice(se12);
         eventRepository.save(startEvent3);
 
-        Event startEvent4 = new Event("The Village outskirts", "A solitary town guardsman, dishevelled in appearance, confronts you.", "STOJ! I cannot let you pass stranger, by order of the Ealdorman.");
+        Event startEvent4 = new Event("The Village outskirts", "A solitary town guardsman, dishevelled in appearance, confronts you.", "STOJ! I cannot let you pass stranger, by order of the Ealdorman.", "../assets/village.png");
         eventRepository.save(startEvent4);
 
         Choice se13 = new Choice("Return to crossroad", 6);
@@ -149,7 +149,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent4.addChoice(se16);
         eventRepository.save(startEvent4);
 
-        Event startEvent5 = new Event("The Mysterious Lake", "You arrive at the lake and notice it has an ethereal glow.", "What do you do?");
+        Event startEvent5 = new Event("The Mysterious Lake", "You arrive at the lake and notice it has an ethereal glow.", "What do you do?", "../assets/lake.png");
         eventRepository.save(startEvent5);
 
         Choice se17 = new Choice("Drink the water", 98);
@@ -167,7 +167,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent5.addChoice(se20);
         eventRepository.save(startEvent5);
 
-        Event startEvent6 = new Event("The Road West", "You follow the road west and discover the aftermath of an ambush.", "What do you do?");
+        Event startEvent6 = new Event("The Road West", "You follow the road west and discover the aftermath of an ambush.", "What do you do?", "../assets/bridge.png");
         eventRepository.save(startEvent6);
 
         Choice se21 = new Choice("Investigate", 99);
@@ -185,7 +185,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent6.addChoice(se24);
         eventRepository.save(startEvent6);
 
-        Event startEvent7 = new Event("The Crossroads", "You arrive at the crossroads from where your journey began.", "What do you do?");
+        Event startEvent7 = new Event("The Crossroads", "You arrive at the crossroads from where your journey began.", "What do you do?", "../assets/bridge.png");
         eventRepository.save(startEvent7);
 
         Choice se25 = new Choice("Go to the village", 3);
@@ -203,7 +203,7 @@ public class DataLoader implements ApplicationRunner{
         startEvent7.addChoice(se28);
         eventRepository.save(startEvent7);
 
-        Event startEvent8 = new Event("The Village", "You attack the guardsman but are immediately knocked to the ground by their superior martial prowess.", "What do you do?");
+        Event startEvent8 = new Event("The Village", "You attack the guardsman but are immediately knocked to the ground by their superior martial prowess.", "What do you do?", "../assets/village.png");
         eventRepository.save(startEvent8);
 
         Choice se29 = new Choice("Go to the crossroads (crying)", 6);

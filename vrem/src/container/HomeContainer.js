@@ -24,9 +24,7 @@ const HomeContainer = () => {
                     {openModal && <NewPlayerModal closeModal={setOpenModal}/>}
                 </div>
                 <div>
-                    <Link to="/combat">
-                    <button>combat</button>{' '}
-                    </Link>
+                   
                 </div>
             </div>
         </main>
