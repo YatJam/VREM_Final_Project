@@ -3,8 +3,8 @@ import Opponent from '../../image/placeholderskeleton.png';
 
 
 export const playerStats = {
-  level: 44,
-  maxHealth: 20,
+  level: 1,
+  maxHealth: 60,
   name: 'Outcast Knight',
   img: '/assets/placeholderknight.png',
   
@@ -16,9 +16,9 @@ export const playerStats = {
 
 
 export const opponentStats = {
-  level: 44,
+  level: 4,
   name: 'Skeleton Warrior',
-  maxHealth: 20,
+  maxHealth: 30,
   img: '/assets/placeholderskeleton.png',
 
   magic: 50,

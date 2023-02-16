@@ -3,11 +3,10 @@ import InventoryModal from "./InventoryModal";
 import EquipmentModal from "./EquipmentModal";
 import YourDeadModal from "./YourDeadModal";
 import { useNavigate } from 'react-router-dom';
-import Scene from '../../image/demoScene.png'
 import './TextGame.css'
 import { ArmourContext, PlayerContext, WeaponContext } from "../../Helper/useContext";
 
-const TextGame = ({events }) => {
+const TextGame = ({ events }) => {
     const [openInventory, setOpenInventory] = useState(false);
     const [openEquipment, setOpenEquipment] = useState(false);
     const [openYouDead, setOpenYouDead] = useState(false);

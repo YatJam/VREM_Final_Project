@@ -39,8 +39,7 @@ const MainContainer = () => {
                 <Route path='/characters' element={<Characters />} />
                 <Route path='/updates' element={<Updates />} />
                 <Route path='/game' element={<GameContainer />} />
-                <Route path='/combat' element={<CombatContainer />} />
-                {/* <Route path='/game' element={<GameContainer />} /> */}   
+                <Route path='/combat' element={<CombatContainer />} /> 
             </Routes>
             </ArmourContext.Provider>
             </WeaponContext.Provider>
