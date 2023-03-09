@@ -14,5 +14,7 @@ Thank you for taking the time to view my project, I will include updates as an w
 
 James Yates
 
+This is me adopting Agile practices during the build.
+
 ![alt text](image/YatJamSolobuild.jpeg)
 
