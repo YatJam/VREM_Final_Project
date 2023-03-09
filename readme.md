@@ -14,5 +14,5 @@ Thank you for taking the time to view my project, I will include updates as an w
 
 James Yates
 
-![alt text](http://url/to/YatJamSolobuild.jpeg.png)
+![alt text](image/YatJamSolobuild.jpeg)
 
