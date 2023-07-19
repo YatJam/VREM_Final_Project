@@ -1,6 +1,9 @@
-Final Project - VREM
+# CodeClan Final Project - VREM
 
-* [Installation](#installation)
+* [How to Run](#howtorun)
+
+
+## Introduction
 
 VREM (Dwarvish word for sorrow) is a choose your own adventure game implementing a React front end and a Spring Boot back end for data persistence. This was was a solo build capstone project over a two week period, concluding CodeClan's Professional Software Development course.  The game allows players to select various characters who are given random health values and starting equipment upon creatiion. Once created, they are to follow a narritve which they decide on how to proceed through. However, some decisions can lead to an early death so beware!
 
@@ -8,54 +11,26 @@ The current build is a prototype and is set up for demonstration purposes.
 
 The game story, CSS and features are currnently being developed to a smoother and well rounded experience.
 
-There are two main files, one for the Spring Boot database and the second for the React front end. Please open the Vrem_Spring file in IntelliJ, once all the files are loaded please run the database to seed all the data.
-
-vrem contains all the front-end files, please use your terminal to access this folder and use npm start to start the application.
-
 Thank you for taking the time to view my project, I will include updates as an when they are shipped.
 
-James Yates
+## How to Run
+### Prerequisites
+Please ensure you have the IDE Intellij IDEA CE installed on your machine to run the Spring Boot application.
 
-This is me adopting Agile practices during the build.
+### Executing the code
+1. Clone the repo: from your terminal, run `git clone https://github.com/YatJam/VREM_Final_Project.git`
+1. Go to the project directory: `cd VREM_Final_Project`
+1. Using IntelliJ IDEA, open the folder Vrem_Spring and run the application from the IDE.
+1. Return to the project directory and enter the vrem folder: `cd vrem`
+1. To intitialise the React front end: `npm install`
+1. To run the React front end application: `npm start`
+    - A new page in your browser should automatically load with the VREM homepage.
 
-![alt text](image/YatJamSolobuild.jpeg)
+### Terminate the applications
+1. stop the application in Intellij IDEA to close the database.
+1. use control + c in the terminal to close the React app.
 
-## Installation
+## Homepage
+![alt text](image/homepage_vrem.png)
 
-Open Vrem Spring project in IntelliJ IDEA CE
-
-```
-run application to seed database
-```
-
-cd vrem
-
-```
-npm install
-```
-
-npm start
-
-```
-A new browser page should open with the home page for VREM
-```
-
-If react app is not starting:
-
-```
-try npm update
-```
-
-If that does not fix:
-
-```
-npm audit fix
-
-```
-
-If that does not fix it:
-
-```
-npm audit fix —force
-```
 
