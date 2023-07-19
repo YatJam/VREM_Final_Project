@@ -27,8 +27,8 @@ Please ensure you have the IDE Intellij IDEA CE installed on your machine to run
     - A new page in your browser should automatically load with the VREM homepage.
 
 ### Terminate the applications
-1. stop the application in Intellij IDEA to close the database.
-1. use control + c in the terminal to close the React app.
+1. Stop the application in Intellij IDEA to close the database.
+1. Use control + c in the terminal to close the React app.
 
 ## Homepage
 ![alt text](image/homepage_vrem.png)
